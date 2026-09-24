@@ -1,1 +1,31 @@
-{ "updated": null, "fx": {}, "prices": {}, "errors": [] }
+{
+  "updated": "2026-09-24T11:53:19.002978+00:00",
+  "fx": {
+    "USDJPY": 158.851
+  },
+  "prices": {
+    "JP:7203": {
+      "price": 2969.0,
+      "prevClose": 3025.0,
+      "changePct": -1.85,
+      "currency": "JPY",
+      "ma_short": 3060.46,
+      "ma_long": 2940.52,
+      "high52": 3944.0,
+      "low52": 2686.0,
+      "asOf": "2026-09-24T06:30:00+00:00"
+    },
+    "US:AAPL": {
+      "price": 337.02,
+      "prevClose": 339.75,
+      "changePct": -0.8,
+      "currency": "USD",
+      "ma_short": 323.87,
+      "ma_long": 314.04,
+      "high52": 340.08,
+      "low52": 245.27,
+      "asOf": "2026-09-23T20:00:01+00:00"
+    }
+  },
+  "errors": []
+}
