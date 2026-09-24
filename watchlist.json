@@ -1,7 +1,11 @@
 {
-  "_comment": "自動で株価を取得したい銘柄をここに書く。market は JP(日本株) か US(米国株)。保有株の株数や取得単価はここには書かないこと（このファイルは公開されます）。",
+  "_comment": "自動で株価・点数を取得したい銘柄を書く。market は JP(日本株) か US(米国株)。name は画面に出す名前(任意)。優待改悪が心配な銘柄は \"yuutaiWarning\": true を付けると、おすすめ候補から外れて『除外中』に表示される。保有株の株数や取得単価はここには書かないこと（このファイルは公開されます）。",
   "symbols": [
-    { "market": "JP", "code": "7203" },
-    { "market": "US", "code": "AAPL" }
+    { "market": "JP", "code": "7203", "name": "トヨタ自動車" },
+    { "market": "JP", "code": "9432", "name": "NTT" },
+    { "market": "JP", "code": "8058", "name": "三菱商事" },
+    { "market": "US", "code": "AAPL", "name": "Apple" },
+    { "market": "US", "code": "MSFT", "name": "Microsoft" },
+    { "market": "US", "code": "KO", "name": "コカ・コーラ" }
   ]
 }

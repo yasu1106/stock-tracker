@@ -54,6 +54,24 @@
   .h-grid .k { color: var(--sub); font-size: 11px; }
   .h-grid .v { font-variant-numeric: tabular-nums; }
   .memo { margin-top: 8px; font-size: 13px; color: var(--sub); white-space: pre-wrap; }
+  .score { display: inline-block; min-width: 44px; text-align: center; font-weight: 700; padding: 2px 8px;
+    border-radius: 8px; font-variant-numeric: tabular-nums; }
+  .score.candidate { background: #dcfae6; color: #067647; }
+  .score.watch { background: #fef0c7; color: #93370d; }
+  .score.caution { background: #fee4e2; color: #b42318; }
+  .score.unknown { background: var(--line); color: var(--sub); }
+  @media (prefers-color-scheme: dark) {
+    .score.candidate { background: #0b3d2a; color: #75e0a7; }
+    .score.watch { background: #4a3210; color: #fec84b; }
+    .score.caution { background: #4a1a17; color: #fda29b; }
+  }
+  .cand { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
+  .cand summary { cursor: pointer; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .cand .grow { flex: 1; min-width: 140px; }
+  .reason { font-size: 13px; display: flex; justify-content: space-between; gap: 10px; padding: 3px 0;
+    border-top: 1px dashed var(--line); }
+  .reason .pts { color: var(--sub); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .warnline { font-size: 12px; color: var(--warn); margin-top: 6px; }
   .empty { color: var(--sub); text-align: center; padding: 18px 0; }
   .note { font-size: 12px; color: var(--sub); }
 </style>
@@ -119,6 +137,12 @@
     </div>
     <div id="list"></div>
   </div>
+
+  <div class="card">
+    <h2>おすすめ候補（未保有の気になる銘柄）</h2>
+    <div class="note" style="margin-bottom:10px">株価の形（トレンド・高値への近さ・値動きの安定度）を100点満点で点数化したものです。将来の値上がりを予測・保証するものではなく、最終判断の材料の一つとしてご覧ください。</div>
+    <div id="ranking"></div>
+  </div>
 </div>
 
 <script>
@@ -138,7 +162,12 @@ const CONFIG = {
   DECIMALS_PCT: 2,                    // 損益率の小数桁
   PRICES_URL: "prices.json",          // 自動取得した株価ファイル（GitHub Actionsが更新）
   AUTO_FX: true,                      // true: 為替レートも自動取得値で上書き / false: 手入力のまま
+  RANKING_MAX: 10,                    // おすすめ候補として表示する最大件数
+  RATING_LABEL: { candidate: "候補", watch: "様子見", caution: "注意", unknown: "判定不可" }, // 点数の区分名
+  // ※点数の区分けの境目（70点/40点）や配点は scripts/fetch_prices.py の上部で調整します
 };
+
+let autoData = null;                  // prices.json の中身（読み込めたときだけ入る）
 
 /* =====================================================================
    データ保存・読込
@@ -244,11 +273,66 @@ function renderList() {
         <div><div class="k">損益率</div><div class="v ${signClass(c.plPct)}">${signed(c.plPct, CONFIG.DECIMALS_PCT)}%</div></div>
       </div>
       ${h.yuutai ? `<div class="memo">優待メモ: ${esc(h.yuutai)}</div>` : ""}
+      ${holdingAnalysis(h)}
     </div>`;
   }).join("");
 }
 
-function render() { renderSummary(); renderList(); }
+/* ---- スコア表示（prices.json の analysis を使う） ---- */
+function scoreBadge(a) {
+  const label = CONFIG.RATING_LABEL[a.rating] || "";
+  const pts = a.score == null ? "--" : a.score + "点";
+  return `<span class="score ${esc(a.rating)}">${pts}</span> <span class="note">${esc(label)}</span>`;
+}
+function reasonsHtml(a) {
+  const rows = (a.reasons || []).map((r) =>
+    `<div class="reason"><span>${esc(r.text)}</span><span class="pts">${r.pts} / ${r.max}</span></div>`).join("");
+  const warns = (a.warnings || []).map((w) => `<div class="warnline">⚠ ${esc(w)}</div>`).join("");
+  return rows + warns;
+}
+// 保有銘柄のカードに出す「見守りコメント」
+function holdingAnalysis(h) {
+  const p = autoData && autoData.prices && autoData.prices[h.market + ":" + h.code];
+  if (!p || !p.analysis) return "";
+  const a = p.analysis;
+  return `<details style="margin-top:8px"><summary style="cursor:pointer;font-size:13px">トレンド評価 ${scoreBadge(a)}` +
+    `${(a.warnings || []).length ? ` <span class="note" style="color:var(--warn)">⚠ ${a.warnings.length}件</span>` : ""}</summary>` +
+    `${reasonsHtml(a)}</details>`;
+}
+
+/* ---- おすすめ候補ランキング（保有していない銘柄だけ） ---- */
+function candHtml(k, p) {
+  const [market, code] = k.split(":");
+  const m = marketOf(market);
+  const chg = p.changePct == null ? "" : `<span class="${signClass(p.changePct)}">${signed(p.changePct, 2)}%</span>`;
+  const priceTxt = fmt(p.price, market === "US" ? CONFIG.DECIMALS_USD : CONFIG.DECIMALS_YEN) + " " + m.symbol;
+  return `<details class="cand"><summary>${scoreBadge(p.analysis)}
+    <span class="grow"><span class="badge">${esc(m.label)}</span>${p.yuutaiWarning ? '<span class="badge warn">優待に注意</span>' : ""}
+    <b>${esc(p.name || code)}</b> <span class="note">${esc(code)}</span></span>
+    <span class="note">${priceTxt} ${chg}</span></summary>${reasonsHtml(p.analysis)}</details>`;
+}
+function renderRanking() {
+  const box = $("ranking");
+  if (!autoData || !autoData.prices) {
+    box.innerHTML = '<div class="empty">株価データ（prices.json）を読み込めていません。GitHub Pages上で開くと表示されます。</div>';
+    return;
+  }
+  const owned = new Set(state.holdings.map((h) => h.market + ":" + h.code));
+  const list = Object.entries(autoData.prices)
+    .filter(([k, p]) => !owned.has(k) && p.analysis)
+    .sort((a, b) => (b[1].analysis.score ?? -1) - (a[1].analysis.score ?? -1));
+  const main = list.filter(([, p]) => !p.yuutaiWarning);
+  const excluded = list.filter(([, p]) => p.yuutaiWarning);   // 優待改悪が心配な銘柄は別枠で表示
+  let html = main.slice(0, CONFIG.RANKING_MAX).map(([k, p]) => candHtml(k, p)).join("");
+  if (!main.length) html = '<div class="empty">未保有の候補がありません。watchlist.json に銘柄を追加してください。</div>';
+  if (excluded.length) {
+    html += `<details style="margin-top:10px"><summary class="note" style="cursor:pointer">優待の心配があり除外中（${excluded.length}銘柄）</summary>` +
+      excluded.map(([k, p]) => candHtml(k, p)).join("") + `</details>`;
+  }
+  box.innerHTML = html;
+}
+
+function render() { renderSummary(); renderList(); renderRanking(); }
 
 /* =====================================================================
    フォーム
@@ -378,6 +462,7 @@ async function applyAutoPrices() {
     const res = await fetch(CONFIG.PRICES_URL + "?t=" + Date.now(), { cache: "no-store" });
     if (!res.ok) return;
     const data = await res.json();
+    autoData = data;
     let n = 0;
     state.holdings.forEach((h) => {
       const p = data.prices && data.prices[h.market + ":" + h.code];

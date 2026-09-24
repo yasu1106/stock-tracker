@@ -26,6 +26,31 @@ FX_SYMBOL = "USDJPY=X"        # ドル円レート
 USER_AGENT = "Mozilla/5.0 (compatible; stock-tracker/1.0)"  # 未指定だと拒否されることがある
 BASE_URL = "https://query1.finance.yahoo.com/v8/finance/chart/"
 
+# ===== スコアリング設定（100点満点。配点や基準はここだけ変えればOK） =====
+# 【重要】これは「過去の株価の形」を点数にしただけで、将来の値上がりを保証・予測するものではない。
+SCORE_WEIGHTS = {             # 合計が100になるようにする
+    "ma_alignment": 25,       # 株価 > 短期線 > 長期線 と並んでいるか（上昇トレンドの形）
+    "ma_slope": 15,           # 長期線が上向きか
+    "near_high": 20,          # 52週高値にどれだけ近いか
+    "momentum": 20,           # 半年間の値上がり率
+    "stability": 20,          # 値動きの安定度（荒い銘柄は減点）
+}
+RATING_CANDIDATE = 70         # この点数以上 → 「候補」
+RATING_WATCH = 40             # この点数以上 → 「様子見」、未満 → 「注意」
+SLOPE_LOOKBACK = 20           # 長期線の傾きを見る日数（20営業日前と比較）
+SLOPE_FULL_PCT = 3.0          # 長期線が上記期間で +3% 上がれば満点
+NEAR_HIGH_FLOOR = 0.70        # 高値の70%以下なら0点、100%なら満点
+MOMENTUM_DAYS = 126           # 「半年」の営業日数
+MOMENTUM_FULL_PCT = 30.0      # 半年で +30% 以上上がれば満点
+VOL_DAYS = 60                 # 値動きの荒さを測る日数
+VOL_BEST = 20.0               # 年率換算の変動が20%以下なら満点
+VOL_WORST = 60.0              # 60%以上なら0点
+# 警告（点数とは別に、気をつけたい点として表示する）
+WARN_DROP_DAYS = 20           # 直近何営業日で
+WARN_DROP_PCT = -10.0         # 何%以上下がったら警告
+WARN_OVERHEAT_RATIO = 1.3     # 株価が長期線の1.3倍を超えたら「過熱」警告
+WARN_VOL = 50.0               # 年率変動がこれ以上なら「値動きが荒い」警告
+
 
 def to_yahoo_symbol(market, code):
     # 日本株は末尾に .T を付ける（例: 7203 -> 7203.T）。米国株はそのまま。
@@ -52,6 +77,72 @@ def fetch_one(symbol):
 
 def avg(xs):
     return sum(xs) / len(xs) if xs else None
+
+
+def clamp01(x):
+    return max(0.0, min(1.0, x))
+
+
+def compute_score(closes, price):
+    """終値の配列と現在値から、100点満点のスコアと理由・警告を作る（株価の形だけを見る）。"""
+    need = MA_LONG + SLOPE_LOOKBACK
+    if not price or len(closes) < need:
+        return {"score": None, "rating": "unknown", "reasons": [],
+                "warnings": ["データ不足（上場から日が浅い等）のため点数を付けられません"]}
+
+    ma_s = avg(closes[-MA_SHORT:])
+    ma_l = avg(closes[-MA_LONG:])
+    ma_l_past = avg(closes[-MA_LONG - SLOPE_LOOKBACK:-SLOPE_LOOKBACK])
+    reasons, total = [], 0.0
+
+    def add(key, frac, text):
+        nonlocal total
+        pts = SCORE_WEIGHTS[key] * clamp01(frac)
+        total += pts
+        reasons.append({"text": text, "pts": round(pts, 1), "max": SCORE_WEIGHTS[key]})
+
+    # 1) 移動平均の並び: 株価>短期線(1/5) + 短期線>長期線(2/5) + 株価>長期線(2/5)
+    frac = (0.2 if price > ma_s else 0) + (0.4 if ma_s > ma_l else 0) + (0.4 if price > ma_l else 0)
+    add("ma_alignment", frac,
+        f"株価と{MA_SHORT}日線・{MA_LONG}日線の並び（株価{'>' if price > ma_s else '<'}{MA_SHORT}日線、"
+        f"{MA_SHORT}日線{'>' if ma_s > ma_l else '<'}{MA_LONG}日線）")
+
+    # 2) 長期線の傾き
+    slope = (ma_l / ma_l_past - 1) * 100
+    add("ma_slope", slope / SLOPE_FULL_PCT, f"{MA_LONG}日線の傾き（{SLOPE_LOOKBACK}日で{slope:+.1f}%）")
+
+    # 3) 52週高値との近さ
+    high = max(max(closes), price)
+    ratio = price / high
+    add("near_high", (ratio - NEAR_HIGH_FLOOR) / (1 - NEAR_HIGH_FLOOR), f"52週高値の{ratio * 100:.0f}%の位置")
+
+    # 4) 半年の値上がり率
+    base = closes[-MOMENTUM_DAYS - 1] if len(closes) > MOMENTUM_DAYS else closes[0]
+    ret = (price / base - 1) * 100
+    add("momentum", ret / MOMENTUM_FULL_PCT, f"半年の値上がり率 {ret:+.1f}%")
+
+    # 5) 値動きの安定度（日次騰落率の標準偏差を年率換算）
+    recent = closes[-VOL_DAYS - 1:]
+    rets = [recent[i] / recent[i - 1] - 1 for i in range(1, len(recent))]
+    mean = sum(rets) / len(rets)
+    vol = (sum((r - mean) ** 2 for r in rets) / len(rets)) ** 0.5 * (252 ** 0.5) * 100
+    add("stability", (VOL_WORST - vol) / (VOL_WORST - VOL_BEST), f"値動きの荒さ（年率換算 {vol:.0f}%）")
+
+    warnings = []
+    if price < ma_l:
+        warnings.append(f"株価が{MA_LONG}日線を下回っています")
+    if len(closes) > WARN_DROP_DAYS:
+        drop = (price / closes[-WARN_DROP_DAYS - 1] - 1) * 100
+        if drop <= WARN_DROP_PCT:
+            warnings.append(f"直近{WARN_DROP_DAYS}営業日で {drop:.1f}% 下落しています")
+    if price > ma_l * WARN_OVERHEAT_RATIO:
+        warnings.append(f"{MA_LONG}日線から離れすぎ（過熱の可能性）")
+    if vol >= WARN_VOL:
+        warnings.append("値動きが荒い銘柄です")
+
+    score = round(total)
+    rating = "candidate" if score >= RATING_CANDIDATE else "watch" if score >= RATING_WATCH else "caution"
+    return {"score": score, "rating": rating, "reasons": reasons, "warnings": warnings}
 
 
 def build_entry(meta, closes):
@@ -98,7 +189,11 @@ def main():
         key = f"{market}:{code}"
         try:
             meta, closes = fetch_one(to_yahoo_symbol(market, code))
-            out["prices"][key] = build_entry(meta, closes)
+            entry = build_entry(meta, closes)
+            entry["name"] = item.get("name", "")                        # 画面に出す銘柄名（任意）
+            entry["yuutaiWarning"] = bool(item.get("yuutaiWarning"))    # 優待改悪が心配な銘柄は候補から除外して表示
+            entry["analysis"] = compute_score(closes, entry["price"])   # 100点満点のスコアと理由
+            out["prices"][key] = entry
         except Exception as e:
             out["errors"].append(str(e))
         time.sleep(SLEEP_SEC)
