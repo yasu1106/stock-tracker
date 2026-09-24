@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>保有株トラッカー</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --text: #1c2333; --sub: #667085;
+    --line: #e4e7ec; --accent: #2563eb; --up: #d92d20; --down: #1570ef;
+    --warn-bg: #fff4e5; --warn: #b54708;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1420; --card: #182030; --text: #e8ecf4; --sub: #98a2b3;
+      --line: #2a3450; --accent: #5b9bff; --up: #ff6b5e; --down: #5aa9ff;
+      --warn-bg: #3a2a10; --warn: #ffb454;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; line-height: 1.5; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 20px; margin: 4px 0 12px; }
+  h2 { font-size: 15px; margin: 0 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .stat .label { font-size: 12px; color: var(--sub); }
+  .stat .value { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .up { color: var(--up); } .down { color: var(--down); }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+  .toolbar label { font-size: 13px; color: var(--sub); }
+  input, select, textarea, button { font: inherit; color: var(--text); background: var(--card);
+    border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+  input[type=number] { width: 110px; }
+  button { cursor: pointer; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  button.small { padding: 4px 8px; font-size: 12px; }
+  button.danger { color: var(--up); }
+  form.add { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  form.add .full { grid-column: 1 / -1; }
+  form.add label { display: block; font-size: 12px; color: var(--sub); margin-bottom: 2px; }
+  form.add input, form.add select, form.add textarea { width: 100%; }
+  .check { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+  .check input { width: auto; }
+  .holding { border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+  .holding.flagged { border-color: var(--warn); }
+  .h-head { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+  .h-name { font-weight: 700; }
+  .badge { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--sub); margin-right: 4px; }
+  .badge.warn { background: var(--warn-bg); color: var(--warn); border-color: var(--warn); }
+  .h-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 6px 12px; margin-top: 8px; font-size: 13px; }
+  .h-grid .k { color: var(--sub); font-size: 11px; }
+  .h-grid .v { font-variant-numeric: tabular-nums; }
+  .memo { margin-top: 8px; font-size: 13px; color: var(--sub); white-space: pre-wrap; }
+  .empty { color: var(--sub); text-align: center; padding: 18px 0; }
+  .note { font-size: 12px; color: var(--sub); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>保有株トラッカー</h1>
+
+  <div class="card">
+    <div class="summary" id="summary"></div>
+    <div class="note" id="fxNote" style="margin-top:8px"></div>
+  </div>
+
+  <div class="card">
+    <h2>為替レート・データ管理</h2>
+    <div class="toolbar">
+      <label>1ドル = <input type="number" id="fxInput" step="0.01" min="0"> 円</label>
+      <button id="fxSave">レート更新</button>
+      <button id="exportBtn">バックアップ保存</button>
+      <button id="importBtn">バックアップ読込</button>
+      <input type="file" id="importFile" accept="application/json" hidden>
+    </div>
+    <div class="note">データはこのブラウザ内にだけ保存されます。端末を変える前に必ずバックアップを保存してください。</div>
+  </div>
+
+  <div class="card">
+    <h2 id="formTitle">銘柄を登録</h2>
+    <form class="add" id="addForm">
+      <div><label>市場</label>
+        <select id="fMarket"></select></div>
+      <div><label>銘柄コード / ティッカー</label>
+        <input id="fCode" required placeholder="例: 7203 / AAPL"></div>
+      <div><label>銘柄名</label>
+        <input id="fName" required placeholder="例: トヨタ自動車"></div>
+      <div><label>株数</label>
+        <input id="fShares" type="number" min="0" step="any" required></div>
+      <div><label>取得単価 (<span id="fCurA">円</span>)</label>
+        <input id="fCost" type="number" min="0" step="any" required></div>
+      <div><label>現在値 (<span id="fCurB">円</span>)</label>
+        <input id="fPrice" type="number" min="0" step="any" placeholder="未入力なら取得単価"></div>
+      <div class="full"><label>優待メモ</label>
+        <textarea id="fYuutai" rows="2" placeholder="例: 100株で〇〇券 / 改悪の履歴など"></textarea></div>
+      <div class="full check"><input type="checkbox" id="fFlag"><label for="fFlag" style="margin:0;color:var(--text);font-size:14px">優待改悪などが心配（除外フラグ）</label></div>
+      <div class="full toolbar">
+        <button type="submit" class="primary" id="fSubmit">登録する</button>
+        <button type="button" id="fCancel" hidden>編集をやめる</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="card">
+    <div class="toolbar" style="justify-content:space-between">
+      <h2 style="margin:0">保有銘柄</h2>
+      <div>
+        <label>並び順
+          <select id="sortSel">
+            <option value="added">登録順</option>
+            <option value="value">評価額が大きい順</option>
+            <option value="pl">損益率が高い順</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div id="list"></div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   設定（あとから調整したい値はここに集約）
+   ===================================================================== */
+const CONFIG = {
+  STORAGE_KEY: "stockTracker.v1",     // 保存キー。変えると既存データが見えなくなるので注意
+  DEFAULT_USDJPY: 150,                // 為替レートの初期値（画面から変更可）
+  MARKETS: [                          // 市場の一覧。増やす場合はここに追加
+    { id: "JP", label: "日本株", currency: "JPY", symbol: "円" },
+    { id: "US", label: "米国株", currency: "USD", symbol: "ドル" },
+  ],
+  DEFAULT_SORT: "added",              // added / value / pl
+  DECIMALS_YEN: 0,                    // 円の小数桁
+  DECIMALS_USD: 2,                    // ドルの小数桁
+  DECIMALS_PCT: 2,                    // 損益率の小数桁
+  PRICES_URL: "prices.json",          // 自動取得した株価ファイル（GitHub Actionsが更新）
+  AUTO_FX: true,                      // true: 為替レートも自動取得値で上書き / false: 手入力のまま
+};
+
+/* =====================================================================
+   データ保存・読込
+   localStorageが使えない環境（プライベートモード等）でも落ちないよう、
+   失敗時はメモリ上のデータで動かす。
+   ===================================================================== */
+let state = { fx: CONFIG.DEFAULT_USDJPY, holdings: [] };
+let editingId = null;
+
+function load() {
+  try {
+    const raw = localStorage.getItem(CONFIG.STORAGE_KEY);
+    if (raw) {
+      const d = JSON.parse(raw);
+      if (d && Array.isArray(d.holdings)) {
+        state = { fx: Number(d.fx) > 0 ? Number(d.fx) : CONFIG.DEFAULT_USDJPY, holdings: d.holdings };
+      }
+    }
+  } catch (e) { /* 読めなくても初期状態で続行 */ }
+}
+function save() {
+  try { localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* 保存不可でも表示は続行 */ }
+}
+
+/* =====================================================================
+   計算・表示ヘルパー
+   ===================================================================== */
+const $ = (id) => document.getElementById(id);
+const marketOf = (id) => CONFIG.MARKETS.find((m) => m.id === id) || CONFIG.MARKETS[0];
+const fmt = (n, d) => Number(n).toLocaleString("ja-JP", { minimumFractionDigits: d, maximumFractionDigits: d });
+const toJpy = (h, amount) => (h.market === "US" ? amount * state.fx : amount);
+const decOf = (h) => (h.market === "US" ? CONFIG.DECIMALS_USD : CONFIG.DECIMALS_YEN);
+
+function calc(h) {
+  const cost = h.shares * h.cost;
+  const value = h.shares * h.price;
+  const costJpy = toJpy(h, cost);
+  const valueJpy = toJpy(h, value);
+  const plJpy = valueJpy - costJpy;
+  const plPct = costJpy > 0 ? (plJpy / costJpy) * 100 : 0;
+  return { costJpy, valueJpy, plJpy, plPct };
+}
+const signClass = (n) => (n > 0 ? "up" : n < 0 ? "down" : "");
+const signed = (n, d) => (n > 0 ? "+" : "") + fmt(n, d);
+
+// 文字列をHTMLに埋め込む前のエスケープ（メモ欄に < > を入れても壊れないように）
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+/* =====================================================================
+   描画
+   ===================================================================== */
+function renderSummary() {
+  let cost = 0, value = 0, jp = 0, us = 0;
+  state.holdings.forEach((h) => {
+    const c = calc(h);
+    cost += c.costJpy; value += c.valueJpy;
+    if (h.market === "US") us += c.valueJpy; else jp += c.valueJpy;
+  });
+  const pl = value - cost;
+  const pct = cost > 0 ? (pl / cost) * 100 : 0;
+  const stat = (label, val, cls = "") =>
+    `<div class="stat"><div class="label">${label}</div><div class="value ${cls}">${val}</div></div>`;
+  $("summary").innerHTML =
+    stat("評価額合計", fmt(value, 0) + " 円") +
+    stat("取得額合計", fmt(cost, 0) + " 円") +
+    stat("損益", signed(pl, 0) + " 円 (" + signed(pct, CONFIG.DECIMALS_PCT) + "%)", signClass(pl)) +
+    stat("日本株 / 米国株", fmt(jp, 0) + " / " + fmt(us, 0) + " 円");
+  $("fxNote").textContent = "米国株は 1ドル = " + fmt(state.fx, 2) + " 円 で換算しています。";
+}
+
+function renderList() {
+  const sort = $("sortSel").value;
+  const rows = state.holdings.map((h) => ({ h, c: calc(h) }));
+  if (sort === "value") rows.sort((a, b) => b.c.valueJpy - a.c.valueJpy);
+  if (sort === "pl") rows.sort((a, b) => b.c.plPct - a.c.plPct);
+
+  if (!rows.length) { $("list").innerHTML = '<div class="empty">まだ銘柄がありません。上のフォームから登録してください。</div>'; return; }
+
+  $("list").innerHTML = rows.map(({ h, c }) => {
+    const m = marketOf(h.market);
+    const d = decOf(h);
+    return `
+    <div class="holding ${h.flag ? "flagged" : ""}" data-id="${esc(h.id)}">
+      <div class="h-head">
+        <div>
+          <span class="badge">${esc(m.label)}</span>${h.flag ? '<span class="badge warn">優待に注意</span>' : ""}
+          <div class="h-name">${esc(h.name)} <span class="note">${esc(h.code)}</span></div>
+        </div>
+        <div>
+          <button class="small" data-act="edit">編集</button>
+          <button class="small danger" data-act="del">削除</button>
+        </div>
+      </div>
+      <div class="h-grid">
+        <div><div class="k">株数</div><div class="v">${fmt(h.shares, 0)}</div></div>
+        <div><div class="k">取得単価</div><div class="v">${fmt(h.cost, d)} ${m.symbol}</div></div>
+        <div><div class="k">現在値（タップで更新）</div>
+          <div class="v"><input type="number" class="priceInline" step="any" min="0" value="${esc(h.price)}" style="width:100px;padding:3px 6px"> ${m.symbol}</div></div>
+        <div><div class="k">評価額（円）</div><div class="v">${fmt(c.valueJpy, 0)} 円</div></div>
+        <div><div class="k">損益（円）</div><div class="v ${signClass(c.plJpy)}">${signed(c.plJpy, 0)} 円</div></div>
+        <div><div class="k">損益率</div><div class="v ${signClass(c.plPct)}">${signed(c.plPct, CONFIG.DECIMALS_PCT)}%</div></div>
+      </div>
+      ${h.yuutai ? `<div class="memo">優待メモ: ${esc(h.yuutai)}</div>` : ""}
+    </div>`;
+  }).join("");
+}
+
+function render() { renderSummary(); renderList(); }
+
+/* =====================================================================
+   フォーム
+   ===================================================================== */
+function updateCurrencyLabels() {
+  const m = marketOf($("fMarket").value);
+  $("fCurA").textContent = m.symbol;
+  $("fCurB").textContent = m.symbol;
+}
+function resetForm() {
+  editingId = null;
+  $("addForm").reset();
+  $("formTitle").textContent = "銘柄を登録";
+  $("fSubmit").textContent = "登録する";
+  $("fCancel").hidden = true;
+  updateCurrencyLabels();
+}
+function startEdit(id) {
+  const h = state.holdings.find((x) => x.id === id);
+  if (!h) return;
+  editingId = id;
+  $("fMarket").value = h.market; $("fCode").value = h.code; $("fName").value = h.name;
+  $("fShares").value = h.shares; $("fCost").value = h.cost; $("fPrice").value = h.price;
+  $("fYuutai").value = h.yuutai || ""; $("fFlag").checked = !!h.flag;
+  $("formTitle").textContent = "銘柄を編集";
+  $("fSubmit").textContent = "更新する";
+  $("fCancel").hidden = false;
+  updateCurrencyLabels();
+  $("addForm").scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+$("addForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const cost = Number($("fCost").value);
+  const priceRaw = $("fPrice").value;
+  const item = {
+    id: editingId || String(Date.now()) + Math.random().toString(36).slice(2, 6),
+    market: $("fMarket").value,
+    code: $("fCode").value.trim().toUpperCase(),
+    name: $("fName").value.trim(),
+    shares: Number($("fShares").value),
+    cost,
+    price: priceRaw === "" ? cost : Number(priceRaw),   // 現在値が空なら取得単価で仮置き
+    yuutai: $("fYuutai").value.trim(),
+    flag: $("fFlag").checked,
+  };
+  if (editingId) {
+    state.holdings = state.holdings.map((x) => (x.id === editingId ? item : x));
+  } else {
+    state.holdings.push(item);
+  }
+  save(); resetForm(); render();
+});
+$("fCancel").addEventListener("click", resetForm);
+$("fMarket").addEventListener("change", updateCurrencyLabels);
+
+/* =====================================================================
+   一覧の操作（編集・削除・現在値のその場更新）
+   ===================================================================== */
+$("list").addEventListener("click", (e) => {
+  const btn = e.target.closest("button[data-act]");
+  if (!btn) return;
+  const id = btn.closest(".holding").dataset.id;
+  if (btn.dataset.act === "edit") startEdit(id);
+  if (btn.dataset.act === "del") {
+    const h = state.holdings.find((x) => x.id === id);
+    if (h && confirm(h.name + " を削除しますか？")) {
+      state.holdings = state.holdings.filter((x) => x.id !== id);
+      save(); render();
+    }
+  }
+});
+$("list").addEventListener("change", (e) => {
+  if (!e.target.classList.contains("priceInline")) return;
+  const id = e.target.closest(".holding").dataset.id;
+  const v = Number(e.target.value);
+  if (!(v >= 0)) return;
+  const h = state.holdings.find((x) => x.id === id);
+  if (h) { h.price = v; save(); render(); }
+});
+$("sortSel").addEventListener("change", renderList);
+
+/* =====================================================================
+   為替・バックアップ
+   ===================================================================== */
+$("fxSave").addEventListener("click", () => {
+  const v = Number($("fxInput").value);
+  if (v > 0) { state.fx = v; save(); render(); }
+});
+$("exportBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "stock-tracker-backup-" + new Date().toISOString().slice(0, 10) + ".json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+$("importBtn").addEventListener("click", () => $("importFile").click());
+$("importFile").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const d = JSON.parse(reader.result);
+      if (!d || !Array.isArray(d.holdings)) throw new Error("形式が違います");
+      if (!confirm("現在のデータを、このバックアップで置き換えますか？")) return;
+      state = { fx: Number(d.fx) > 0 ? Number(d.fx) : CONFIG.DEFAULT_USDJPY, holdings: d.holdings };
+      save(); $("fxInput").value = state.fx; render();
+    } catch (err) { alert("読み込めませんでした: " + err.message); }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+
+/* =====================================================================
+   起動
+   ===================================================================== */
+/* =====================================================================
+   株価の自動反映（GitHub Actionsが更新する prices.json を読む）
+   - 同じ「市場:コード」の銘柄があれば現在値を上書きする
+   - ファイルが無い/読めない場合（ローカルで開いた時など）は何もしない＝手入力のまま使える
+   - watchlist.json にコードを足していない銘柄は、従来どおり手入力の値が残る
+   ===================================================================== */
+async function applyAutoPrices() {
+  try {
+    const res = await fetch(CONFIG.PRICES_URL + "?t=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) return;
+    const data = await res.json();
+    let n = 0;
+    state.holdings.forEach((h) => {
+      const p = data.prices && data.prices[h.market + ":" + h.code];
+      if (p && p.price > 0) { h.price = p.price; n++; }
+    });
+    if (CONFIG.AUTO_FX && data.fx && data.fx.USDJPY > 0) {
+      state.fx = Math.round(data.fx.USDJPY * 100) / 100;
+      $("fxInput").value = state.fx;
+    }
+    save(); render();
+    if (data.updated) {
+      $("fxNote").textContent += " 株価の自動更新: " + new Date(data.updated).toLocaleString("ja-JP") + "（" + n + "銘柄反映）";
+    }
+  } catch (e) { /* file:// で開いている等。手入力運用にフォールバック */ }
+}
+
+load();
+$("fMarket").innerHTML = CONFIG.MARKETS.map((m) => `<option value="${m.id}">${m.label}</option>`).join("");
+$("sortSel").value = CONFIG.DEFAULT_SORT;
+$("fxInput").value = state.fx;
+updateCurrencyLabels();
+render();
+applyAutoPrices();
+</script>
+</body>
+</html>
