@@ -1,0 +1,28 @@
+name: screen-stable
+
+on:
+  schedule:
+    # 毎週土曜 10:00 JST（=1:00 UTC）。市場が閉まっている時間に、週1回だけ実行する。
+    - cron: "0 1 * * 6"
+  workflow_dispatch:   # 手動実行ボタン用
+
+permissions:
+  contents: write
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Screen stable low-price stocks
+        run: python scripts/screen_stable.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add screener.json
+          git diff --staged --quiet || git commit -m "update screener"
+          git push

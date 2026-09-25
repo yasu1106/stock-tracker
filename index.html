@@ -143,6 +143,12 @@
     <div class="note" style="margin-bottom:10px">株価の形（トレンド・高値への近さ・値動きの安定度）を100点満点で点数化したものです。将来の値上がりを予測・保証するものではなく、最終判断の材料の一つとしてご覧ください。ニュースの見出しに悪材料っぽい単語が含まれる銘柄は自動で下の「除外中」に回しますが、単語だけを見た簡易チェックなので、必ず自分でも見出しの内容を確認してください。</div>
     <div id="ranking"></div>
   </div>
+
+  <div class="card">
+    <h2>1000円以下・安定候補（日経225の中から）</h2>
+    <div class="note" style="margin-bottom:10px">日経225の構成銘柄のうち、株価が1000円以下で、過去52週の値動きが比較的穏やかな銘柄を自動でスクリーニングしたものです。「安定」は値動きの荒さが小さいという意味で、上昇を意味するものではありません。長期線を大きく下回っている銘柄（下落中とみなせるもの）はあらかじめ除いています。週1回、土曜の朝に更新します。</div>
+    <div id="screener"></div>
+  </div>
 </div>
 
 <script>
@@ -165,9 +171,11 @@ const CONFIG = {
   RANKING_MAX: 10,                    // おすすめ候補として表示する最大件数
   RATING_LABEL: { candidate: "候補", watch: "様子見", caution: "注意", unknown: "判定不可" }, // 点数の区分名
   // ※点数の区分けの境目（70点/40点）や配点は scripts/fetch_prices.py の上部で調整します
+  SCREENER_URL: "screener.json",      // 1000円以下・安定銘柄スクリーニング結果（GitHub Actionsが週1回更新）
 };
 
 let autoData = null;                  // prices.json の中身（読み込めたときだけ入る）
+let screenerData = null;              // screener.json の中身（読み込めたときだけ入る）
 
 /* =====================================================================
    データ保存・読込
@@ -493,6 +501,39 @@ async function applyAutoPrices() {
   } catch (e) { /* file:// で開いている等。手入力運用にフォールバック */ }
 }
 
+/* ---- 1000円以下・安定候補（screener.json を読む） ---- */
+function screenerRowHtml(r) {
+  const m = marketOf(r.market);
+  const reasons = (r.reasons || []).map((x) =>
+    `<div class="reason"><span>${esc(x.text)}</span><span class="pts">${x.pts} / ${x.max}</span></div>`).join("");
+  return `<details class="cand"><summary><span class="score candidate">${r.score}点</span>
+    <span class="grow"><span class="badge">${esc(m.label)}</span>
+    <b>${esc(r.name)}</b> <span class="note">${esc(r.code)}</span></span>
+    <span class="note">${fmt(r.price, 1)} 円</span></summary>${reasons}
+    <div class="note" style="margin-top:6px">52週高安: ${fmt(r.low52,1)}〜${fmt(r.high52,1)}円 / ${r.ma_long}円(75日線)</div></details>`;
+}
+async function loadScreener() {
+  try {
+    const res = await fetch(CONFIG.SCREENER_URL + "?t=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) return;
+    screenerData = await res.json();
+  } catch (e) { /* 未取得ならフォールバック表示のまま */ }
+  renderScreener();
+}
+function renderScreener() {
+  const box = $("screener");
+  if (!screenerData) {
+    box.innerHTML = '<div class="empty">データ（screener.json）を読み込めていません。GitHub Pages上で開くと表示されます。</div>';
+    return;
+  }
+  const list = screenerData.results || [];
+  const updatedTxt = screenerData.updated ? new Date(screenerData.updated).toLocaleString("ja-JP") : "未実行";
+  const head = `<div class="note" style="margin-bottom:8px">最終更新: ${esc(updatedTxt)}（対象${screenerData.universeCount || 0}銘柄中 ${screenerData.matchCount || 0}銘柄が該当）</div>`;
+  box.innerHTML = head + (list.length
+    ? list.map(screenerRowHtml).join("")
+    : '<div class="empty">条件に合う銘柄が見つかりませんでした。</div>');
+}
+
 load();
 $("fMarket").innerHTML = CONFIG.MARKETS.map((m) => `<option value="${m.id}">${m.label}</option>`).join("");
 $("sortSel").value = CONFIG.DEFAULT_SORT;
@@ -500,6 +541,7 @@ $("fxInput").value = state.fx;
 updateCurrencyLabels();
 render();
 applyAutoPrices();
+loadScreener();
 </script>
 </body>
 </html>
