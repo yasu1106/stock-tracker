@@ -140,7 +140,7 @@
 
   <div class="card">
     <h2>おすすめ候補（未保有の気になる銘柄）</h2>
-    <div class="note" style="margin-bottom:10px">株価の形（トレンド・高値への近さ・値動きの安定度）を100点満点で点数化したものです。将来の値上がりを予測・保証するものではなく、最終判断の材料の一つとしてご覧ください。</div>
+    <div class="note" style="margin-bottom:10px">株価の形（トレンド・高値への近さ・値動きの安定度）を100点満点で点数化したものです。将来の値上がりを予測・保証するものではなく、最終判断の材料の一つとしてご覧ください。ニュースの見出しに悪材料っぽい単語が含まれる銘柄は自動で下の「除外中」に回しますが、単語だけを見た簡易チェックなので、必ず自分でも見出しの内容を確認してください。</div>
     <div id="ranking"></div>
   </div>
 </div>
@@ -290,14 +290,27 @@ function reasonsHtml(a) {
   const warns = (a.warnings || []).map((w) => `<div class="warnline">⚠ ${esc(w)}</div>`).join("");
   return rows + warns;
 }
+// ニュースの簡易チェック結果（見出しのキーワード一致のみ。本文の内容までは判定していない）
+function newsHtml(news) {
+  if (!news || !news.checked) return "";
+  if (!news.warnings || !news.warnings.length) return "";
+  const rows = news.warnings.map((w) =>
+    `<div class="warnline">⚠ [${esc(w.keyword)}] ${esc(w.title)}</div>`).join("");
+  return `<div style="margin-top:6px">${rows}</div>`;
+}
+function newsBadge(news) {
+  return news && news.riskFlag
+    ? `<span class="badge warn">ニュース要チェック（${news.warnings.length}件）</span>` : "";
+}
 // 保有銘柄のカードに出す「見守りコメント」
 function holdingAnalysis(h) {
   const p = autoData && autoData.prices && autoData.prices[h.market + ":" + h.code];
   if (!p || !p.analysis) return "";
   const a = p.analysis;
+  const warnCount = (a.warnings || []).length + (p.news && p.news.warnings ? p.news.warnings.length : 0);
   return `<details style="margin-top:8px"><summary style="cursor:pointer;font-size:13px">トレンド評価 ${scoreBadge(a)}` +
-    `${(a.warnings || []).length ? ` <span class="note" style="color:var(--warn)">⚠ ${a.warnings.length}件</span>` : ""}</summary>` +
-    `${reasonsHtml(a)}</details>`;
+    `${warnCount ? ` <span class="note" style="color:var(--warn)">⚠ ${warnCount}件</span>` : ""}</summary>` +
+    `${reasonsHtml(a)}${newsHtml(p.news)}</details>`;
 }
 
 /* ---- おすすめ候補ランキング（保有していない銘柄だけ） ---- */
@@ -307,9 +320,9 @@ function candHtml(k, p) {
   const chg = p.changePct == null ? "" : `<span class="${signClass(p.changePct)}">${signed(p.changePct, 2)}%</span>`;
   const priceTxt = fmt(p.price, market === "US" ? CONFIG.DECIMALS_USD : CONFIG.DECIMALS_YEN) + " " + m.symbol;
   return `<details class="cand"><summary>${scoreBadge(p.analysis)}
-    <span class="grow"><span class="badge">${esc(m.label)}</span>${p.yuutaiWarning ? '<span class="badge warn">優待に注意</span>' : ""}
+    <span class="grow"><span class="badge">${esc(m.label)}</span>${p.yuutaiWarning ? '<span class="badge warn">優待に注意</span>' : ""}${newsBadge(p.news)}
     <b>${esc(p.name || code)}</b> <span class="note">${esc(code)}</span></span>
-    <span class="note">${priceTxt} ${chg}</span></summary>${reasonsHtml(p.analysis)}</details>`;
+    <span class="note">${priceTxt} ${chg}</span></summary>${reasonsHtml(p.analysis)}${newsHtml(p.news)}</details>`;
 }
 function renderRanking() {
   const box = $("ranking");
@@ -318,15 +331,16 @@ function renderRanking() {
     return;
   }
   const owned = new Set(state.holdings.map((h) => h.market + ":" + h.code));
+  const isExcluded = (p) => p.yuutaiWarning || (p.news && p.news.riskFlag);
   const list = Object.entries(autoData.prices)
     .filter(([k, p]) => !owned.has(k) && p.analysis)
     .sort((a, b) => (b[1].analysis.score ?? -1) - (a[1].analysis.score ?? -1));
-  const main = list.filter(([, p]) => !p.yuutaiWarning);
-  const excluded = list.filter(([, p]) => p.yuutaiWarning);   // 優待改悪が心配な銘柄は別枠で表示
+  const main = list.filter(([, p]) => !isExcluded(p));
+  const excluded = list.filter(([, p]) => isExcluded(p));   // 優待改悪・ニュース懸念がある銘柄は別枠で表示
   let html = main.slice(0, CONFIG.RANKING_MAX).map(([k, p]) => candHtml(k, p)).join("");
   if (!main.length) html = '<div class="empty">未保有の候補がありません。watchlist.json に銘柄を追加してください。</div>';
   if (excluded.length) {
-    html += `<details style="margin-top:10px"><summary class="note" style="cursor:pointer">優待の心配があり除外中（${excluded.length}銘柄）</summary>` +
+    html += `<details style="margin-top:10px"><summary class="note" style="cursor:pointer">優待・ニュースの懸念があり除外中（${excluded.length}銘柄）</summary>` +
       excluded.map(([k, p]) => candHtml(k, p)).join("") + `</details>`;
   }
   box.innerHTML = html;
