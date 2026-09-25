@@ -7,7 +7,8 @@ prices.json に書き出す。
 【注意】非公式APIのため、仕様変更やアクセス制限で急に動かなくなる可能性がある。
 その場合は SOURCE_* の部分だけ差し替えれば他の処理は変えずに済むよう、取得部分を fetch_one() に分離してある。
 """
-import json, sys, time, urllib.request, urllib.parse
+import json, re, sys, time, urllib.request, urllib.parse
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -50,6 +51,63 @@ WARN_DROP_DAYS = 20           # 直近何営業日で
 WARN_DROP_PCT = -10.0         # 何%以上下がったら警告
 WARN_OVERHEAT_RATIO = 1.3     # 株価が長期線の1.3倍を超えたら「過熱」警告
 WARN_VOL = 50.0               # 年率変動がこれ以上なら「値動きが荒い」警告
+
+# ===== ニュース確認設定（②現在のニュースの情勢から落ちそうな銘柄を除外） =====
+# 【重要】見出しに含まれる単語だけで機械的に拾う簡易チェックであり、内容を理解して判定しているわけではない。
+# 「除外」ではなく「要チェック」の警告として扱い、最終判断は必ず自分でニュース本文を確認すること。
+NEWS_ENABLED = True                   # ニュース確認そのもののON/OFF
+NEWS_ITEMS_PER_SYMBOL = 8             # 銘柄ごとに見出しをいくつ確認するか
+NEWS_TIMEOUT_SEC = 15
+NEWS_SLEEP_SEC = 1.0                  # 銘柄ごとの待ち時間
+# 見出しにこの単語が入っていたら「悪材料の疑い」として警告する（増減は自由。誤検知はあり得る前提で）
+NEWS_NEGATIVE_KEYWORDS = [
+    "下方修正", "赤字", "減益", "減収", "最終赤字", "特別損失", "減配", "無配",
+    "不祥事", "粉飾", "捜査", "逮捕", "上場廃止", "監理銘柄", "行政処分",
+    "リコール", "回収", "事故", "火災", "訴訟", "提訴", "賠償",
+    "撤退", "希望退職", "リストラ", "工場閉鎖", "生産停止", "供給停止",
+    "格下げ", "自己資本比率", "債務超過", "経営再建", "私的整理",
+]
+# 見出しにこの単語が入っていたら「好材料」として参考表示する（除外判定には使わない）
+NEWS_POSITIVE_KEYWORDS = ["上方修正", "最高益", "増配", "自社株買い", "黒字転換", "提携", "受賞"]
+
+
+def fetch_news(query, max_items=NEWS_ITEMS_PER_SYMBOL):
+    """Googleニュース検索のRSSから見出しを取得する（非公式の使い方。取れない場合は空リストを返す）。"""
+    url = "https://news.google.com/rss/search?" + urllib.parse.urlencode(
+        {"q": query, "hl": "ja", "gl": "JP", "ceid": "JP:ja"})
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=NEWS_TIMEOUT_SEC) as r:
+        raw = r.read()
+    root = ET.fromstring(raw)
+    items = []
+    for item in root.findall("./channel/item")[:max_items]:
+        title = (item.findtext("title") or "").strip()
+        link = (item.findtext("link") or "").strip()
+        pub = (item.findtext("pubDate") or "").strip()
+        if title:
+            items.append({"title": title, "link": link, "pubDate": pub})
+    return items
+
+
+def analyze_news(items):
+    hits, positives = [], []
+    for it in items:
+        for kw in NEWS_NEGATIVE_KEYWORDS:
+            if kw in it["title"]:
+                hits.append({"keyword": kw, "title": it["title"], "link": it["link"]})
+                break
+        else:
+            for kw in NEWS_POSITIVE_KEYWORDS:
+                if kw in it["title"]:
+                    positives.append({"keyword": kw, "title": it["title"], "link": it["link"]})
+                    break
+    return {
+        "checked": True,
+        "count": len(items),
+        "warnings": hits,
+        "positives": positives,
+        "riskFlag": len(hits) > 0,   # True の銘柄は画面で「ニュース要チェック」表示にする
+    }
 
 
 def to_yahoo_symbol(market, code):
@@ -193,6 +251,19 @@ def main():
             entry["name"] = item.get("name", "")                        # 画面に出す銘柄名（任意）
             entry["yuutaiWarning"] = bool(item.get("yuutaiWarning"))    # 優待改悪が心配な銘柄は候補から除外して表示
             entry["analysis"] = compute_score(closes, entry["price"])   # 100点満点のスコアと理由
+
+            # ニュース見出しの簡易チェック（会社名が無い銘柄はニュース検索できないのでスキップ）
+            name = item.get("name")
+            if NEWS_ENABLED and name:
+                try:
+                    news_items = fetch_news(name)
+                    entry["news"] = analyze_news(news_items)
+                except Exception as e:
+                    entry["news"] = {"checked": False, "error": str(e)}
+                time.sleep(NEWS_SLEEP_SEC)
+            else:
+                entry["news"] = {"checked": False, "error": "銘柄名(name)が未設定のためニュース検索していません"}
+
             out["prices"][key] = entry
         except Exception as e:
             out["errors"].append(str(e))
