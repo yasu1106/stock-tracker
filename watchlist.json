@@ -6,6 +6,10 @@
     { "market": "JP", "code": "8058", "name": "三菱商事" },
     { "market": "US", "code": "AAPL", "name": "Apple" },
     { "market": "US", "code": "MSFT", "name": "Microsoft" },
-    { "market": "US", "code": "KO", "name": "コカ・コーラ" }
+    { "market": "US", "code": "KO", "name": "コカ・コーラ" },
+    { "market": "JP", "code": "3548", "name": "バロックジャパンリミテッド" },
+    { "market": "JP", "code": "8267", "name": "イオン" },
+    { "market": "JP", "code": "9119", "name": "飯野海運" },
+    { "market": "JP", "code": "9769", "name": "学究社" }
   ]
 }
