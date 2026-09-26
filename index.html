@@ -159,8 +159,9 @@ const CONFIG = {
   STORAGE_KEY: "stockTracker.v1",     // 保存キー。変えると既存データが見えなくなるので注意
   DEFAULT_USDJPY: 150,                // 為替レートの初期値（画面から変更可）
   MARKETS: [                          // 市場の一覧。増やす場合はここに追加
-    { id: "JP", label: "日本株", currency: "JPY", symbol: "円" },
-    { id: "US", label: "米国株", currency: "USD", symbol: "ドル" },
+    // quoteUrl: 銘柄名タップ時に開くページ。{code} の部分がコードに置き換わる
+    { id: "JP", label: "日本株", currency: "JPY", symbol: "円", quoteUrl: "https://finance.yahoo.co.jp/quote/{code}.T" },
+    { id: "US", label: "米国株", currency: "USD", symbol: "ドル", quoteUrl: "https://finance.yahoo.com/quote/{code}" },
   ],
   DEFAULT_SORT: "added",              // added / value / pl
   DECIMALS_YEN: 0,                    // 円の小数桁
@@ -225,6 +226,18 @@ const signed = (n, d) => (n > 0 ? "+" : "") + fmt(n, d);
 function esc(s) {
   return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
+// 銘柄名をタップすると株価サイトが新しいタブで開くリンクにする
+function quoteUrl(market, code) {
+  const m = marketOf(market);
+  return m.quoteUrl ? m.quoteUrl.replace("{code}", encodeURIComponent(code)) : null;
+}
+function nameLink(market, code, label) {
+  const url = quoteUrl(market, code);
+  const text = esc(label);
+  return url
+    ? `<a href="${esc(url)}" target="_blank" rel="noopener" style="color:inherit" onclick="event.stopPropagation()">${text}</a>`
+    : text;
+}
 
 /* =====================================================================
    描画
@@ -264,7 +277,7 @@ function renderList() {
       <div class="h-head">
         <div>
           <span class="badge">${esc(m.label)}</span>${h.flag ? '<span class="badge warn">優待に注意</span>' : ""}
-          <div class="h-name">${esc(h.name)} <span class="note">${esc(h.code)}</span></div>
+          <div class="h-name">${nameLink(h.market, h.code, h.name)} <span class="note">${esc(h.code)}</span></div>
         </div>
         <div>
           <button class="small" data-act="edit">編集</button>
@@ -329,7 +342,7 @@ function candHtml(k, p) {
   const priceTxt = fmt(p.price, market === "US" ? CONFIG.DECIMALS_USD : CONFIG.DECIMALS_YEN) + " " + m.symbol;
   return `<details class="cand"><summary>${scoreBadge(p.analysis)}
     <span class="grow"><span class="badge">${esc(m.label)}</span>${p.yuutaiWarning ? '<span class="badge warn">優待に注意</span>' : ""}${newsBadge(p.news)}
-    <b>${esc(p.name || code)}</b> <span class="note">${esc(code)}</span></span>
+    <b>${nameLink(market, code, p.name || code)}</b> <span class="note">${esc(code)}</span></span>
     <span class="note">${priceTxt} ${chg}</span></summary>${reasonsHtml(p.analysis)}${newsHtml(p.news)}</details>`;
 }
 function renderRanking() {
@@ -508,7 +521,7 @@ function screenerRowHtml(r) {
     `<div class="reason"><span>${esc(x.text)}</span><span class="pts">${x.pts} / ${x.max}</span></div>`).join("");
   return `<details class="cand"><summary><span class="score candidate">${r.score}点</span>
     <span class="grow"><span class="badge">${esc(m.label)}</span>
-    <b>${esc(r.name)}</b> <span class="note">${esc(r.code)}</span></span>
+    <b>${nameLink(r.market, r.code, r.name)}</b> <span class="note">${esc(r.code)}</span></span>
     <span class="note">${fmt(r.price, 1)} 円</span></summary>${reasons}
     <div class="note" style="margin-top:6px">52週高安: ${fmt(r.low52,1)}〜${fmt(r.high52,1)}円 / ${r.ma_long}円(75日線)</div></details>`;
 }
