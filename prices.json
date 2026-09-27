@@ -1,7 +1,7 @@
 {
-  "updated": "2026-09-25T12:33:33.441006+00:00",
+  "updated": "2026-09-27T23:52:43.811062+00:00",
   "fx": {
-    "USDJPY": 157.714
+    "USDJPY": 157.485
   },
   "prices": {
     "JP:7203": {
@@ -156,30 +156,24 @@
         "checked": true,
         "count": 8,
         "warnings": [],
-        "positives": [
-          {
-            "keyword": "提携",
-            "title": "リゾートトラスト---もみ合い、グループ会社が三菱商事と資本業務提携 - 株探",
-            "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9TSTlXVUJmZjNmUDhzdjhtci10WXRSLUlkNkRKSTdBemkyc200ck1SZlBDNzlac0hsVTBOZ09GVHFpNGppYkxfOEtzUXUxTFFPOTRza19aWmhlcE9rR21HYw?oc=5"
-          }
-        ],
+        "positives": [],
         "riskFlag": false
       }
     },
     "US:AAPL": {
-      "price": 335.92,
-      "prevClose": 337.0199890136719,
-      "changePct": -0.33,
+      "price": 341.07,
+      "prevClose": 335.9200134277344,
+      "changePct": 1.53,
       "currency": "USD",
-      "ma_short": 324.63,
-      "ma_long": 314.5,
-      "high52": 340.08,
+      "ma_short": 325.82,
+      "ma_long": 315.18,
+      "high52": 341.07,
       "low52": 245.27,
-      "asOf": "2026-09-24T20:00:01+00:00",
+      "asOf": "2026-09-25T20:00:01+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 90,
+        "score": 92,
         "rating": "candidate",
         "reasons": [
           {
@@ -188,17 +182,17 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+2.0%）",
-            "pts": 10.1,
+            "text": "75日線の傾き（20日で+2.1%）",
+            "pts": 10.7,
             "max": 15
           },
           {
-            "text": "52週高値の99%の位置",
-            "pts": 19.2,
+            "text": "52週高値の100%の位置",
+            "pts": 20.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +33.0%",
+            "text": "半年の値上がり率 +34.9%",
             "pts": 20.0,
             "max": 20
           },
@@ -214,30 +208,24 @@
         "checked": true,
         "count": 8,
         "warnings": [],
-        "positives": [
-          {
-            "keyword": "提携",
-            "title": "Apple Music Classicalが学習プラットフォームKahoot!と提携。クイズやリスニングでクラシック音楽を学べる - ｄメニューニュース",
-            "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQUjRNWUxYSnZacmJBS2ZXWEhndlhJaXVOaTVFVFBFYzh6bkM1UTRiMG91WnZ3Z19la1BzaDMtZm9ma0hyQVMyTV95dzdaV0ZJUkJEZlZ4RVZtdlpXNjdjcHY5NFJ6andwNWNBZ2wtSi1fZk5SalFtSGR6VVk5WFJDeGFnV2p5M1FGTUtSWXd6dGp5RTJKeXRmSFBtZGvSAY8BQVVfeXFMTmhvMWlBVm9NbDBncjlJWTVYbEFpdU9aaXY2REVzRFphME4wUTROdjQzTnVQaWRKbjh6ay1VaFpPTHV4R1lWM08yb1FfOG1wY09hN2l6NnVudktHM1lCUmd2UHVkM2RTMnM5THhCNzZMVFp3SUczRE54MWUyNmxYWjJzUVNfdEpTY2VRVUJVY2s?oc=5"
-          }
-        ],
+        "positives": [],
         "riskFlag": false
       }
     },
     "US:MSFT": {
-      "price": 497.93,
-      "prevClose": 500.5899963378906,
-      "changePct": -0.53,
+      "price": 516.17,
+      "prevClose": 497.92999267578125,
+      "changePct": 3.66,
       "currency": "USD",
-      "ma_short": 497.18,
-      "ma_long": 443.44,
+      "ma_short": 498.58,
+      "ma_long": 444.94,
       "high52": 542.07,
       "low52": 352.83,
-      "asOf": "2026-09-24T20:00:01+00:00",
+      "asOf": "2026-09-25T20:00:01+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 85,
+        "score": 87,
         "rating": "candidate",
         "reasons": [
           {
@@ -251,18 +239,18 @@
             "max": 15
           },
           {
-            "text": "52週高値の92%の位置",
-            "pts": 14.6,
+            "text": "52週高値の95%の位置",
+            "pts": 16.8,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +34.2%",
+            "text": "半年の値上がり率 +41.0%",
             "pts": 20.0,
             "max": 20
           },
           {
             "text": "値動きの荒さ（年率換算 40%）",
-            "pts": 10.1,
+            "pts": 10.0,
             "max": 20
           }
         ],
@@ -277,19 +265,19 @@
       }
     },
     "US:KO": {
-      "price": 88.1,
-      "prevClose": 88.08999633789062,
-      "changePct": 0.01,
+      "price": 87.81,
+      "prevClose": 88.0999984741211,
+      "changePct": -0.33,
       "currency": "USD",
-      "ma_short": 88.95,
-      "ma_long": 85.49,
+      "ma_short": 88.77,
+      "ma_long": 85.7,
       "high52": 91.99,
       "low52": 65.67,
-      "asOf": "2026-09-24T20:00:02+00:00",
+      "asOf": "2026-09-25T20:00:02+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 82,
+        "score": 81,
         "rating": "candidate",
         "reasons": [
           {
@@ -298,18 +286,18 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+2.7%）",
-            "pts": 13.5,
+            "text": "75日線の傾き（20日で+2.6%）",
+            "pts": 12.9,
             "max": 15
           },
           {
-            "text": "52週高値の96%の位置",
-            "pts": 17.2,
+            "text": "52週高値の95%の位置",
+            "pts": 17.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +18.0%",
-            "pts": 12.0,
+            "text": "半年の値上がり率 +17.6%",
+            "pts": 11.7,
             "max": 20
           },
           {
@@ -437,15 +425,9 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [
-          {
-            "keyword": "回収",
-            "title": "イオンが送風機自主回収 発火恐れ - Yahoo!ニュース",
-            "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBVM0pSSUdnbnl6NFhLa1JCZVNTdVdXSlNBVDZIMzlUVU85MUU3ek1BU2I5WjdxWWFibWVLMUw1eWFGbEl3Yld2NHM3SHhFYTcx?oc=5"
-          }
-        ],
+        "warnings": [],
         "positives": [],
-        "riskFlag": true
+        "riskFlag": false
       }
     },
     "JP:9119": {
@@ -559,13 +541,7 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [
-          {
-            "keyword": "赤字",
-            "title": "【決算速報】学究社---27年3月期1Qは赤字縮小、経常損益は▲1200万円(フィスコ) - Yahoo!ファイナンス",
-            "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQVlp1X0V4OHJUSVNTcjFoZnpNaWp0V2stWVN4eU04MEI3M0pZcEVaa3Zldy04WHRvcHZ5Ynk3ZFhWYjBXYkUzMXNZYWdLY1Q0dnlmTEdYZUI1cS1FZ2pKOFBjZW1fd0JxN2lnc1UxM0hmbGEyUjY5Z3RiSUVNU2VpS0tCQ2tvdk0?oc=5"
-          }
-        ],
+        "warnings": [],
         "positives": [
           {
             "keyword": "最高益",
@@ -573,7 +549,7 @@
             "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1nS3JCMk1LMFRMY0o2NGhDOTNCeDNXdWROdTZiWU03QldKTl9zdDFWcnlNTFAwZXNGeGNLenZIYUxVTFdwb21heE5ZRlBaRnRWb0E?oc=5"
           }
         ],
-        "riskFlag": true
+        "riskFlag": false
       }
     }
   },
