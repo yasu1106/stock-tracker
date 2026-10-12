@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-12T00:41:10.520186+00:00",
+  "updated": "2026-10-12T16:29:09.802394+00:00",
   "fx": {
-    "USDJPY": 158.11
+    "USDJPY": 158.699
   },
   "prices": {
     "JP:7203": {
@@ -159,31 +159,25 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [
-          {
-            "keyword": "撤退",
-            "title": "ミャンマー都市開発に転機 三菱商事など撤退、商機とリスクに隔たり - 日本経済新聞",
-            "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE13bVFReVFmRUttLUYzU3RnOThwTzhtRE9rNGVEbHZxcTVLVjhzclJtWG9YdFhxbl9BZTloXzl3elpfYlRaaURSQjRYOW1rZG9xVVpJclIzMDE0OG9zQ2lNVHBLYWVEekZmU28zNA?oc=5"
-          }
-        ],
+        "warnings": [],
         "positives": [],
-        "riskFlag": true
+        "riskFlag": false
       }
     },
     "US:AAPL": {
-      "price": 336.64,
-      "prevClose": 340.4200134277344,
-      "changePct": -1.11,
+      "price": 339.875,
+      "prevClose": 336.6400146484375,
+      "changePct": 0.96,
       "currency": "USD",
-      "ma_short": 332.73,
-      "ma_long": 320.41,
+      "ma_short": 333.52,
+      "ma_long": 321.28,
       "high52": 341.07,
-      "low52": 245.27,
-      "asOf": "2026-10-09T20:00:00+00:00",
+      "low52": 246.63,
+      "asOf": "2026-10-12T16:29:17+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 95,
+        "score": 97,
         "rating": "candidate",
         "reasons": [
           {
@@ -192,18 +186,18 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+2.9%）",
-            "pts": 14.5,
+            "text": "75日線の傾き（20日で+3.1%）",
+            "pts": 15.0,
             "max": 15
           },
           {
-            "text": "52週高値の99%の位置",
-            "pts": 19.1,
+            "text": "52週高値の100%の位置",
+            "pts": 19.8,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +29.2%",
-            "pts": 19.5,
+            "text": "半年の値上がり率 +31.1%",
+            "pts": 20.0,
             "max": 20
           },
           {
@@ -223,19 +217,19 @@
       }
     },
     "US:MSFT": {
-      "price": 535.07,
-      "prevClose": 522.6099853515625,
-      "changePct": 2.38,
+      "price": 540.845,
+      "prevClose": 535.0700073242188,
+      "changePct": 1.08,
       "currency": "USD",
-      "ma_short": 507.01,
-      "ma_long": 463.16,
+      "ma_short": 508.66,
+      "ma_long": 465.67,
       "high52": 542.07,
       "low52": 352.83,
-      "asOf": "2026-10-09T20:00:01+00:00",
+      "asOf": "2026-10-12T16:29:20+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 89,
+        "score": 90,
         "rating": "candidate",
         "reasons": [
           {
@@ -244,23 +238,23 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+6.4%）",
+            "text": "75日線の傾き（20日で+6.7%）",
             "pts": 15.0,
             "max": 15
           },
           {
-            "text": "52週高値の99%の位置",
-            "pts": 19.1,
+            "text": "52週高値の100%の位置",
+            "pts": 19.8,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +44.3%",
+            "text": "半年の値上がり率 +40.7%",
             "pts": 20.0,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 40%）",
-            "pts": 10.1,
+            "text": "値動きの荒さ（年率換算 39%）",
+            "pts": 10.3,
             "max": 20
           }
         ],
@@ -275,19 +269,19 @@
       }
     },
     "US:KO": {
-      "price": 88.05,
-      "prevClose": 87.7699966430664,
-      "changePct": 0.32,
+      "price": 89.095,
+      "prevClose": 88.05000305175781,
+      "changePct": 1.19,
       "currency": "USD",
-      "ma_short": 87.53,
-      "ma_long": 86.45,
+      "ma_short": 87.57,
+      "ma_long": 86.57,
       "high52": 91.99,
       "low52": 66.8,
-      "asOf": "2026-10-09T20:00:02+00:00",
+      "asOf": "2026-10-12T16:29:17+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 83,
+        "score": 85,
         "rating": "candidate",
         "reasons": [
           {
@@ -297,21 +291,21 @@
           },
           {
             "text": "75日線の傾き（20日で+2.3%）",
-            "pts": 11.4,
+            "pts": 11.5,
             "max": 15
           },
           {
-            "text": "52週高値の96%の位置",
-            "pts": 17.1,
+            "text": "52週高値の97%の位置",
+            "pts": 17.9,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +13.7%",
-            "pts": 9.1,
+            "text": "半年の値上がり率 +16.6%",
+            "pts": 11.1,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 19%）",
+            "text": "値動きの荒さ（年率換算 18%）",
             "pts": 20.0,
             "max": 20
           }
