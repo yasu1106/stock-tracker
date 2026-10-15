@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-15T12:27:18.224055+00:00",
+  "updated": "2026-10-15T23:44:55.331401+00:00",
   "fx": {
-    "USDJPY": 158.05
+    "USDJPY": 158.126
   },
   "prices": {
     "JP:7203": {
@@ -163,19 +163,19 @@
       }
     },
     "US:AAPL": {
-      "price": 342.96,
-      "prevClose": 341.2699890136719,
-      "changePct": 0.5,
+      "price": 342.0,
+      "prevClose": 342.9599914550781,
+      "changePct": -0.28,
       "currency": "USD",
-      "ma_short": 335.67,
-      "ma_long": 322.87,
+      "ma_short": 336.29,
+      "ma_long": 323.57,
       "high52": 342.96,
       "low52": 246.63,
-      "asOf": "2026-10-14T20:00:01+00:00",
+      "asOf": "2026-10-15T20:00:01+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 96,
+        "score": 97,
         "rating": "candidate",
         "reasons": [
           {
@@ -184,18 +184,18 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+3.4%）",
+            "text": "75日線の傾き（20日で+3.5%）",
             "pts": 15.0,
             "max": 15
           },
           {
             "text": "52週高値の100%の位置",
-            "pts": 20.0,
+            "pts": 19.8,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +28.7%",
-            "pts": 19.1,
+            "text": "半年の値上がり率 +29.8%",
+            "pts": 19.9,
             "max": 20
           },
           {
@@ -210,20 +210,26 @@
         "checked": true,
         "count": 8,
         "warnings": [],
-        "positives": [],
+        "positives": [
+          {
+            "keyword": "提携",
+            "title": "メタとアップルが提携、MacでオープンウエートトAI展開へ - WSJ",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQOFY4bGNYeDNNYmRTVEN2UHF1TXFibFBUekVqbWZVZFdXOEE4ZnRxTHpOdUdyTlVaT0hOUjZWMU1sTkRTeW5BcllfTW8tY0hjZ3NSdGRMT3RIblB3bjhmWXpxS2Vuc0E4QlRTajJCb2xKamdFbWF4VGphak5Za0p1YlhpaEl3Vy10eG9rQWtJX3FjXzNCdGNMTmFfam5VSFRPQjMyMmNfWXNRTUJFZTJjOFdneFVGRm43aXhrVGRoQQ?oc=5"
+          }
+        ],
         "riskFlag": false
       }
     },
     "US:MSFT": {
-      "price": 533.69,
-      "prevClose": 543.4500122070312,
-      "changePct": -1.8,
+      "price": 539.44,
+      "prevClose": 533.6900024414062,
+      "changePct": 1.08,
       "currency": "USD",
-      "ma_short": 512.33,
-      "ma_long": 470.15,
+      "ma_short": 514.21,
+      "ma_long": 472.37,
       "high52": 543.45,
       "low52": 352.83,
-      "asOf": "2026-10-14T20:00:01+00:00",
+      "asOf": "2026-10-15T20:00:01+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
@@ -236,23 +242,23 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+7.3%）",
+            "text": "75日線の傾き（20日で+7.7%）",
             "pts": 15.0,
             "max": 15
           },
           {
-            "text": "52週高値の98%の位置",
-            "pts": 18.8,
+            "text": "52週高値の99%の位置",
+            "pts": 19.5,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +29.8%",
-            "pts": 19.9,
+            "text": "半年の値上がり率 +28.4%",
+            "pts": 18.9,
             "max": 20
           },
           {
             "text": "値動きの荒さ（年率換算 39%）",
-            "pts": 10.3,
+            "pts": 10.4,
             "max": 20
           }
         ],
@@ -267,15 +273,15 @@
       }
     },
     "US:KO": {
-      "price": 91.78,
-      "prevClose": 90.11000061035156,
-      "changePct": 1.85,
+      "price": 92.0,
+      "prevClose": 91.77999877929688,
+      "changePct": 0.24,
       "currency": "USD",
-      "ma_short": 87.84,
-      "ma_long": 86.8,
-      "high52": 91.99,
-      "low52": 67.08,
-      "asOf": "2026-10-14T20:00:02+00:00",
+      "ma_short": 88.0,
+      "ma_long": 86.94,
+      "high52": 92.0,
+      "low52": 67.54,
+      "asOf": "2026-10-15T20:00:02+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
@@ -289,17 +295,17 @@
           },
           {
             "text": "75日線の傾き（20日で+2.3%）",
-            "pts": 11.4,
+            "pts": 11.5,
             "max": 15
           },
           {
             "text": "52週高値の100%の位置",
-            "pts": 19.8,
+            "pts": 20.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +21.9%",
-            "pts": 14.6,
+            "text": "半年の値上がり率 +22.4%",
+            "pts": 14.9,
             "max": 20
           },
           {
@@ -374,13 +380,7 @@
             "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE54Wmd3ZnZObHB3b094QlFBRmxnX0psOHhGbUtBQ1JiTVpqNVpvbWRZczNEVWJlanpxM2Z6VzBoSi13Z0s4UDVUek9LbXF2VkE5TGJF?oc=5"
           }
         ],
-        "positives": [
-          {
-            "keyword": "黒字転換",
-            "title": "バロックジャパンリミテッド、中国合弁事業解消で当期純利益は黒字転換 新中計ではアパレル回復と異業種への挑戦を推進 - ログミーFinance",
-            "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5kYWFZTENoV2g0ZG9zZVg1REE2OUtua3BHbWl0MUY4ZDdzNlBRaVBSWlM1SWVkR05wNVV5MUpPZWstUkdqM3VIcDlKa3l3NG5CdGc?oc=5"
-          }
-        ],
+        "positives": [],
         "riskFlag": true
       }
     },
