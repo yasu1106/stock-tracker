@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-16T12:05:47.366104+00:00",
+  "updated": "2026-10-18T23:30:22.400367+00:00",
   "fx": {
-    "USDJPY": 157.985
+    "USDJPY": 157.81
   },
   "prices": {
     "JP:7203": {
@@ -169,19 +169,19 @@
       }
     },
     "US:AAPL": {
-      "price": 342.0,
-      "prevClose": 342.9599914550781,
-      "changePct": -0.28,
+      "price": 343.46,
+      "prevClose": 342.0,
+      "changePct": 0.43,
       "currency": "USD",
-      "ma_short": 336.29,
-      "ma_long": 323.57,
-      "high52": 342.96,
+      "ma_short": 336.74,
+      "ma_long": 324.23,
+      "high52": 343.46,
       "low52": 246.63,
-      "asOf": "2026-10-15T20:00:01+00:00",
+      "asOf": "2026-10-16T20:00:01+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 97,
+        "score": 95,
         "rating": "candidate",
         "reasons": [
           {
@@ -190,18 +190,18 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+3.5%）",
+            "text": "75日線の傾き（20日で+3.6%）",
             "pts": 15.0,
             "max": 15
           },
           {
             "text": "52週高値の100%の位置",
-            "pts": 19.8,
+            "pts": 20.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +29.8%",
-            "pts": 19.9,
+            "text": "半年の値上がり率 +27.1%",
+            "pts": 18.1,
             "max": 20
           },
           {
@@ -221,19 +221,19 @@
       }
     },
     "US:MSFT": {
-      "price": 539.44,
-      "prevClose": 533.6900024414062,
-      "changePct": 1.08,
+      "price": 529.05,
+      "prevClose": 539.4400024414062,
+      "changePct": -1.93,
       "currency": "USD",
-      "ma_short": 514.21,
-      "ma_long": 472.37,
+      "ma_short": 515.55,
+      "ma_long": 474.3,
       "high52": 543.45,
       "low52": 352.83,
-      "asOf": "2026-10-15T20:00:01+00:00",
+      "asOf": "2026-10-16T20:00:01+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 89,
+        "score": 85,
         "rating": "candidate",
         "reasons": [
           {
@@ -242,23 +242,23 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+7.7%）",
+            "text": "75日線の傾き（20日で+8.0%）",
             "pts": 15.0,
             "max": 15
           },
           {
-            "text": "52週高値の99%の位置",
-            "pts": 19.5,
+            "text": "52週高値の97%の位置",
+            "pts": 18.2,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +28.4%",
-            "pts": 18.9,
+            "text": "半年の値上がり率 +25.1%",
+            "pts": 16.8,
             "max": 20
           },
           {
             "text": "値動きの荒さ（年率換算 39%）",
-            "pts": 10.4,
+            "pts": 10.5,
             "max": 20
           }
         ],
@@ -267,25 +267,41 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [],
+        "warnings": [
+          {
+            "keyword": "撤退",
+            "title": "英AIデータセンター計画でマイクロソフト撤退 英新興に打撃 - 日本経済新聞",
+            "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5vcmNZOS0xVUVSSVlfSWtoanVDZEh4ZkVtd3ducXlhcDVyYTM3cnExZFFrM0p2UllUWWxqVUlHcFU3MkdpX3BmZC1uWlhKbjBHX3FXZWVJUVJzYnRjQmZqcFNET2ZnTHpiQ2IySQ?oc=5"
+          },
+          {
+            "keyword": "撤退",
+            "title": "米マイクロソフト、英データセンター契約から撤退＝英紙 - Reuters",
+            "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBQVkxEVVowa21iN2hjRGZiTnR6M0xNTE5IdG41ejV3VkJ2R095ZkJDcUx5SVJVRkZuSlY5dDEyWjh1MnNIV2NIVmI5N3dqZ21ZUHAyaVdaNlgyQW1oTmJVZ2pObURwSWRjam5EZU8yNG00NHAtWVpvN0UtNnhhdw?oc=5"
+          },
+          {
+            "keyword": "撤退",
+            "title": "米マイクロソフト、英データセンター契約から撤退＝英紙 - ニューズウィーク日本版",
+            "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9fUU5yamNFUlMyMnM3WWExeWhUdy0waEtMWk8yZWtLVDJ1T1RtOER0ZEt2OUxBWUluZzI2SE1aXy15WlZrR0N0cmpjdVQwUjZlLVBUc1J0Zmlidw?oc=5"
+          }
+        ],
         "positives": [],
-        "riskFlag": false
+        "riskFlag": true
       }
     },
     "US:KO": {
-      "price": 92.0,
-      "prevClose": 91.77999877929688,
-      "changePct": 0.24,
+      "price": 93.9,
+      "prevClose": 92.0,
+      "changePct": 2.07,
       "currency": "USD",
-      "ma_short": 88.0,
-      "ma_long": 86.94,
-      "high52": 92.0,
+      "ma_short": 88.23,
+      "ma_long": 87.11,
+      "high52": 93.9,
       "low52": 67.54,
-      "asOf": "2026-10-15T20:00:02+00:00",
+      "asOf": "2026-10-16T20:00:02+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 91,
+        "score": 93,
         "rating": "candidate",
         "reasons": [
           {
@@ -295,7 +311,7 @@
           },
           {
             "text": "75日線の傾き（20日で+2.3%）",
-            "pts": 11.5,
+            "pts": 11.7,
             "max": 15
           },
           {
@@ -304,8 +320,8 @@
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +22.4%",
-            "pts": 14.9,
+            "text": "半年の値上がり率 +24.0%",
+            "pts": 16.0,
             "max": 20
           },
           {
@@ -320,7 +336,13 @@
         "checked": true,
         "count": 8,
         "warnings": [],
-        "positives": [],
+        "positives": [
+          {
+            "keyword": "提携",
+            "title": "KFC、米全店でコカ・コーラ提供へ－長年の提携先ペプシコから変更 - Bloomberg.com",
+            "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE4wZmZsVXczTjdtaFEzSENYM00wbkdKOHZWa3QwSUJLeWxKVlFfc2FmelhRb3IxX2JKdU5nbUVocDQ2a2VrbHlMZjduNzU0VjVReFh3OW9nY0xrTHZ3VVQxck56V1E3eTZlbHlxSHJVdVpMcTZTYnN3?oc=5"
+          }
+        ],
         "riskFlag": false
       }
     },
@@ -376,18 +398,13 @@
         "warnings": [
           {
             "keyword": "下方修正",
-            "title": "バロックジャパン、27年2月期中間は9億円の営業赤字 「アズール」の苦戦響き、通期予想も下方修正 - Yahoo!ニュース",
-            "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4yTkgwZzJzckM3ZVNmVDh2dlFiaGJ5R2RCbURwUVdaQndETm5oQTR6TmNIN1k0UDN0XzFIQ3VDMGxOMnQyRXZyRlF5Q0F1WWk0SHlSSEVtbWRNaUhuaDM1UXlDWXItM05ZalRydVFQcUNSTjJtVGVoUDlFcjZGTzA?oc=5"
-          },
-          {
-            "keyword": "下方修正",
             "title": "バロックジャパンリミテッド、27年2月期予想を大幅下方修正 上期は最終赤字に転落 - Fashionsnap.com",
             "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdzQwUklEd18wX29RTG1mQ2pLVVhMTUpoOXJEbDlCOGcyRmt0cFBKM2FfNWV1ZUFsMHdjelJYSEkzMzNNUHFCaHZ0Vlp6Mlp5emNmSHhRQk4tNXV0eHY0T0xuck05VjRlTXctdXBFUVBVOGxwbTgxZVdjZ281aWdfWTNn?oc=5"
           },
           {
-            "keyword": "赤字",
-            "title": "バロックジャパンの27年2月期は6億円の最終赤字へ、減損で 赤字決算 - 不景気.com",
-            "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5PcnBEYTNLTldIRG1WeUhFYTNWTnluY2NvaW5Vd0JlRlB6OTd1N0dpY0hIaEZNOEpnNGdkX3BBVmZPYmZtQWdrMTctd2lTNmFTQWtNQmhOM0Z0dlFMeHdPaHI3Mk9hZmFiRjZ3Uw?oc=5"
+            "keyword": "下方修正",
+            "title": "バロックジャパン、27年2月期中間は9億円の営業赤字 「アズール」の苦戦響き、通期予想も下方修正 - WWDJAPAN",
+            "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE54Wmd3ZnZObHB3b094QlFBRmxnX0psOHhGbUtBQ1JiTVpqNVpvbWRZczNEVWJlanpxM2Z6VzBoSi13Z0s4UDVUek9LbXF2VkE5TGJF?oc=5"
           }
         ],
         "positives": [],
@@ -446,14 +463,9 @@
         "count": 8,
         "warnings": [
           {
-            "keyword": "赤字",
-            "title": "イオン営業最高益もスーパーは赤字 傘下企業は100店舗閉店へ インフレ「想定以上」（テレビ朝日系（ANN）） - Yahoo!ニュース",
-            "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBoOGoycXNRTjktU290aldvekxENHdsLUV2Sy1ReVkyMVpVcml1SXdCVkp1SGRYNFlHM05NWVhLOE5zVm1NTnkxNVQ5NS1PRV81aU9uRU5lUGdQbXFoZG5sWHdNeUdQSzF4YzlZaVJqTDhOOHl4ZmoyWEpEeEQ3Sk0?oc=5"
-          },
-          {
-            "keyword": "回収",
-            "title": "アンカーが他社製のリチウムイオン電池搭載製品を回収する理由：モノづくり総合版メルマガ 編集後記 - MONOist",
-            "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9JSTVHZ0doa0VTTmlubkZQMXdpNFhoekdpYmE0Q1N6ZElVb3d2WGpWM1ZnUU4xczlxTzdVWkdWWkdsNnF1dlZ2bmpLcFk4bzNLa2hfeFRnOUFtTDFxNlF4NmwzNDVKX1Z5NHFLd2J4dw?oc=5"
+            "keyword": "事故",
+            "title": "「非現実的な光景に恐怖」イオン爆発事故 救助隊員は声の元へ進んだ [熊本県] [2026年熊本地震] - 朝日新聞",
+            "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBNT2d1RHlMOTlzS3RUZi12Ykx2NGR3bjZvRHJDNDRrVzhYQVdlR1M3SEl5S2N3cllvbzhrUXhpS2dQNDMzeWZuR1FTNjVJQ3UtaFFKQTNlYjhUZHFnVzB3MzRiRFBBMGM?oc=5"
           }
         ],
         "positives": [],
@@ -575,17 +587,18 @@
         "count": 8,
         "warnings": [
           {
-            "keyword": "赤字",
-            "title": "学究社、4-6月期(1Q)経常は赤字縮小で着地 - 株探",
-            "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5vXzNkRllleWptQU11NVdDa1VmaHUwYjI1QjI0US1iZjFlbTJzeDdLejQ1LWZOY2pJWjN6LS1KRjduWnMxTDBKcDk4NUJlWlNiMEE?oc=5"
-          },
-          {
             "keyword": "減収",
             "title": "学究社、2026年3月期は減収増益 2027年3月期は増収増益と24円増配を予想 - インベストーク",
             "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFB4NkRvUUNwYmZSTWJGRWpkU3l2MFpKZ2M5b2ZlbjNEQjVpekcydkozbmhfNENZaTM5NFhHMllHR2xha0hTMzlEcU9NVzRNcU92Q3BBNk5YeXQ5dzNMSndjRE9yRQ?oc=5"
           }
         ],
-        "positives": [],
+        "positives": [
+          {
+            "keyword": "最高益",
+            "title": "学究社、今期経常は8％増で2期連続最高益、24円増配へ - 株探",
+            "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1nS3JCMk1LMFRMY0o2NGhDOTNCeDNXdWROdTZiWU03QldKTl9zdDFWcnlNTFAwZXNGeGNLenZIYUxVTFdwb21heE5ZRlBaRnRWb0E?oc=5"
+          }
+        ],
         "riskFlag": true
       }
     }
