@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-21T12:42:41.917168+00:00",
+  "updated": "2026-10-22T00:06:19.307929+00:00",
   "fx": {
-    "USDJPY": 157.931
+    "USDJPY": 158.186
   },
   "prices": {
     "JP:7203": {
@@ -156,35 +156,24 @@
         "checked": true,
         "count": 8,
         "warnings": [],
-        "positives": [
-          {
-            "keyword": "提携",
-            "title": "JX金属と三菱商事の子会社、リネットジャパンと資本業務提携＝3．5億円出資(時事通信) - Yahoo!ファイナンス",
-            "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQU2tGNnlQekt0a2p4Sl9kYkFSZGZvTTZ3MmhtNlk2NktHbGdYNzQzZGVuQzg4TFFscElLMTF5Wk9ZbElaeEc5aTE3SFdQeWMyWVBSQWh6VWtFZFl1bnhPZnpYT0E5WHRsTk9nWkNVSVphcTVOdm5oVXhHbnFJOUJHR1NkMm8weGs?oc=5"
-          },
-          {
-            "keyword": "提携",
-            "title": "◎ＪＸ金属と三菱商事の子会社、リネットジャパンと資本業務提携 - 時事通信ニュース",
-            "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBjYjZMTjdPdnZHanpVLXZ3Z3BQVXJQRkxmQXpzV1Q3RE5MMFpmNUtpZUl5cHo5Q0xDQVIwLXRIdEJLR0o1aEE1elBzcUMwX29iVHdtazhyN3pTQjcxWUE?oc=5"
-          }
-        ],
+        "positives": [],
         "riskFlag": false
       }
     },
     "US:AAPL": {
-      "price": 339.5,
+      "price": 343.99,
       "prevClose": 342.94000244140625,
-      "changePct": -1.0,
+      "changePct": 0.31,
       "currency": "USD",
       "ma_short": 337.46,
       "ma_long": 325.04,
       "high52": 343.46,
       "low52": 246.63,
-      "asOf": "2026-10-20T20:00:01+00:00",
+      "asOf": "2026-10-21T20:00:01+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 95,
+        "score": 97,
         "rating": "candidate",
         "reasons": [
           {
@@ -198,13 +187,13 @@
             "max": 15
           },
           {
-            "text": "52週高値の99%の位置",
-            "pts": 19.2,
+            "text": "52週高値の100%の位置",
+            "pts": 20.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +27.6%",
-            "pts": 18.4,
+            "text": "半年の値上がり率 +29.2%",
+            "pts": 19.5,
             "max": 20
           },
           {
@@ -224,15 +213,15 @@
       }
     },
     "US:MSFT": {
-      "price": 531.87,
+      "price": 532.95,
       "prevClose": 533.52001953125,
-      "changePct": -0.31,
+      "changePct": -0.11,
       "currency": "USD",
       "ma_short": 518.07,
       "ma_long": 478.14,
       "high52": 543.45,
       "low52": 352.83,
-      "asOf": "2026-10-20T20:00:01+00:00",
+      "asOf": "2026-10-21T20:00:01+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
@@ -251,12 +240,12 @@
           },
           {
             "text": "52週高値の98%の位置",
-            "pts": 18.6,
+            "pts": 18.7,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +25.4%",
-            "pts": 16.9,
+            "text": "半年の値上がり率 +25.6%",
+            "pts": 17.1,
             "max": 20
           },
           {
@@ -276,19 +265,19 @@
       }
     },
     "US:KO": {
-      "price": 93.49,
+      "price": 92.68,
       "prevClose": 93.41999816894531,
-      "changePct": 0.07,
+      "changePct": -0.79,
       "currency": "USD",
       "ma_short": 88.58,
       "ma_long": 87.37,
       "high52": 93.9,
       "low52": 67.54,
-      "asOf": "2026-10-20T20:00:02+00:00",
+      "asOf": "2026-10-21T20:00:02+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 93,
+        "score": 92,
         "rating": "candidate",
         "reasons": [
           {
@@ -302,13 +291,13 @@
             "max": 15
           },
           {
-            "text": "52週高値の100%の位置",
-            "pts": 19.7,
+            "text": "52週高値の99%の位置",
+            "pts": 19.1,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +25.2%",
-            "pts": 16.8,
+            "text": "半年の値上がり率 +24.1%",
+            "pts": 16.0,
             "max": 20
           },
           {
@@ -379,13 +368,18 @@
         "warnings": [
           {
             "keyword": "下方修正",
+            "title": "バロックジャパン、27年2月期中間は9億円の営業赤字 「アズール」の苦戦響き、通期予想も下方修正 - WWDJAPAN",
+            "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE54Wmd3ZnZObHB3b094QlFBRmxnX0psOHhGbUtBQ1JiTVpqNVpvbWRZczNEVWJlanpxM2Z6VzBoSi13Z0s4UDVUek9LbXF2VkE5TGJF?oc=5"
+          },
+          {
+            "keyword": "下方修正",
             "title": "バロックジャパンリミテッド、27年2月期予想を大幅下方修正 上期は最終赤字に転落 - Fashionsnap.com",
             "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdzQwUklEd18wX29RTG1mQ2pLVVhMTUpoOXJEbDlCOGcyRmt0cFBKM2FfNWV1ZUFsMHdjelJYSEkzMzNNUHFCaHZ0Vlp6Mlp5emNmSHhRQk4tNXV0eHY0T0xuck05VjRlTXctdXBFUVBVOGxwbTgxZVdjZ281aWdfWTNn?oc=5"
           },
           {
             "keyword": "下方修正",
-            "title": "バロックジャパン、27年2月期中間は9億円の営業赤字 「アズール」の苦戦響き、通期予想も下方修正 - WWDJAPAN",
-            "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE54Wmd3ZnZObHB3b094QlFBRmxnX0psOHhGbUtBQ1JiTVpqNVpvbWRZczNEVWJlanpxM2Z6VzBoSi13Z0s4UDVUek9LbXF2VkE5TGJF?oc=5"
+            "title": "バロック、27年2月期予想を大幅下方修正 営業利益は期初予想から6割減 (FASHIONSNAP) - Yahoo!ニュース",
+            "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPQnNjTFVUbHdWYl9UaVRLYW9WTEpuVGFXT21WUDJfczR6MHRQZFhKQU1nX1hEczF2VmlmbnRwZS1lU3JfVDJZWHcyWlg0aUZ2eHlpMnNaUExQN0Z0RjgtdGR2UkxsWGxwMTZtS2tCdGFZSndhYnl4Xy1oaURzV3RDb1ZZMF9JS25Sd21nTVNR?oc=5"
           }
         ],
         "positives": [],
@@ -442,20 +436,9 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [
-          {
-            "keyword": "撤退",
-            "title": "イオンモール熊本「撤退聞いてない」 参院予算委で経産相＜2026年熊本地震＞ - 熊本日日新聞社",
-            "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFB5NF9WUFlHOFhMLXFhaHpPS2xvU3gtbFVBR3pzTmhhelpLMTJpOUdoN1VzY3Z3VElkZm43WmlSbDdkbGpwMklfMlpMM2FKVjg?oc=5"
-          },
-          {
-            "keyword": "事故",
-            "title": "「非現実的な光景に恐怖」イオン爆発事故 救助隊員は声の元へ進んだ [熊本県] [2026年熊本地震] - 朝日新聞",
-            "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBNT2d1RHlMOTlzS3RUZi12Ykx2NGR3bjZvRHJDNDRrVzhYQVdlR1M3SEl5S2N3cllvbzhrUXhpS2dQNDMzeWZuR1FTNjVJQ3UtaFFKQTNlYjhUZHFnVzB3MzRiRFBBMGM?oc=5"
-          }
-        ],
+        "warnings": [],
         "positives": [],
-        "riskFlag": true
+        "riskFlag": false
       }
     },
     "JP:9119": {
