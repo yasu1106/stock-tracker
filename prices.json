@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-22T12:46:15.798483+00:00",
+  "updated": "2026-10-23T00:04:36.080222+00:00",
   "fx": {
-    "USDJPY": 157.174
+    "USDJPY": 156.341
   },
   "prices": {
     "JP:7203": {
@@ -156,30 +156,24 @@
         "checked": true,
         "count": 8,
         "warnings": [],
-        "positives": [
-          {
-            "keyword": "提携",
-            "title": "JX金属と三菱商事の子会社、リネットジャパンと資本業務提携＝3．5億円出資(時事通信) - Yahoo!ファイナンス",
-            "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQU2tGNnlQekt0a2p4Sl9kYkFSZGZvTTZ3MmhtNlk2NktHbGdYNzQzZGVuQzg4TFFscElLMTF5Wk9ZbElaeEc5aTE3SFdQeWMyWVBSQWh6VWtFZFl1bnhPZnpYT0E5WHRsTk9nWkNVSVphcTVOdm5oVXhHbnFJOUJHR1NkMm8weGs?oc=5"
-          }
-        ],
+        "positives": [],
         "riskFlag": false
       }
     },
     "US:AAPL": {
-      "price": 343.99,
+      "price": 348.22,
       "prevClose": 339.5,
-      "changePct": 1.32,
+      "changePct": 2.57,
       "currency": "USD",
       "ma_short": 337.92,
       "ma_long": 325.49,
       "high52": 343.99,
       "low52": 246.63,
-      "asOf": "2026-10-21T20:00:01+00:00",
+      "asOf": "2026-10-22T20:00:01+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 95,
+        "score": 96,
         "rating": "candidate",
         "reasons": [
           {
@@ -198,8 +192,8 @@
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +25.9%",
-            "pts": 17.3,
+            "text": "半年の値上がり率 +27.5%",
+            "pts": 18.3,
             "max": 20
           },
           {
@@ -219,19 +213,19 @@
       }
     },
     "US:MSFT": {
-      "price": 532.95,
+      "price": 521.08,
       "prevClose": 531.8699951171875,
-      "changePct": 0.2,
+      "changePct": -2.03,
       "currency": "USD",
       "ma_short": 519.77,
       "ma_long": 480.06,
       "high52": 543.45,
       "low52": 352.83,
-      "asOf": "2026-10-21T20:00:01+00:00",
+      "asOf": "2026-10-22T20:00:01+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 85,
+        "score": 81,
         "rating": "candidate",
         "reasons": [
           {
@@ -245,13 +239,13 @@
             "max": 15
           },
           {
-            "text": "52週高値の98%の位置",
-            "pts": 18.7,
+            "text": "52週高値の96%の位置",
+            "pts": 17.3,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +23.1%",
-            "pts": 15.4,
+            "text": "半年の値上がり率 +20.4%",
+            "pts": 13.6,
             "max": 20
           },
           {
@@ -271,19 +265,19 @@
       }
     },
     "US:KO": {
-      "price": 92.68,
+      "price": 95.34,
       "prevClose": 93.48999786376953,
-      "changePct": -0.87,
+      "changePct": 1.98,
       "currency": "USD",
       "ma_short": 88.78,
       "ma_long": 87.49,
       "high52": 93.9,
       "low52": 67.54,
-      "asOf": "2026-10-21T20:00:02+00:00",
+      "asOf": "2026-10-22T20:00:02+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 92,
+        "score": 95,
         "rating": "candidate",
         "reasons": [
           {
@@ -297,13 +291,13 @@
             "max": 15
           },
           {
-            "text": "52週高値の99%の位置",
-            "pts": 19.1,
+            "text": "52週高値の100%の位置",
+            "pts": 20.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +24.2%",
-            "pts": 16.1,
+            "text": "半年の値上がり率 +27.8%",
+            "pts": 18.5,
             "max": 20
           },
           {
@@ -437,15 +431,9 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [
-          {
-            "keyword": "撤退",
-            "title": "イオンモール熊本「撤退聞いてない」 参院予算委で経産相＜2026年熊本地震＞ - 熊本日日新聞社",
-            "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFB5NF9WUFlHOFhMLXFhaHpPS2xvU3gtbFVBR3pzTmhhelpLMTJpOUdoN1VzY3Z3VElkZm43WmlSbDdkbGpwMklfMlpMM2FKVjg?oc=5"
-          }
-        ],
+        "warnings": [],
         "positives": [],
-        "riskFlag": true
+        "riskFlag": false
       }
     },
     "JP:9119": {
@@ -456,7 +444,7 @@
       "ma_short": 1684.92,
       "ma_long": 1623.11,
       "high52": 1909.0,
-      "low52": 1168.0,
+      "low52": 1176.0,
       "asOf": "2026-10-22T06:30:00+00:00",
       "name": "飯野海運",
       "yuutaiWarning": false,
@@ -565,23 +553,17 @@
         "count": 8,
         "warnings": [
           {
-            "keyword": "減収",
-            "title": "学究社、2026年3月期は減収増益 2027年3月期は増収増益と24円増配を予想 - インベストーク",
-            "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFB4NkRvUUNwYmZSTWJGRWpkU3l2MFpKZ2M5b2ZlbjNEQjVpekcydkozbmhfNENZaTM5NFhHMllHR2xha0hTMzlEcU9NVzRNcU92Q3BBNk5YeXQ5dzNMSndjRE9yRQ?oc=5"
-          },
-          {
             "keyword": "赤字",
             "title": "学究社、4-6月期(1Q)経常は赤字縮小で着地 - 株探",
             "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5vXzNkRllleWptQU11NVdDa1VmaHUwYjI1QjI0US1iZjFlbTJzeDdLejQ1LWZOY2pJWjN6LS1KRjduWnMxTDBKcDk4NUJlWlNiMEE?oc=5"
-          }
-        ],
-        "positives": [
+          },
           {
-            "keyword": "最高益",
-            "title": "学究社、今期経常は8％増で2期連続最高益、24円増配へ - 株探",
-            "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1nS3JCMk1LMFRMY0o2NGhDOTNCeDNXdWROdTZiWU03QldKTl9zdDFWcnlNTFAwZXNGeGNLenZIYUxVTFdwb21heE5ZRlBaRnRWb0E?oc=5"
+            "keyword": "減収",
+            "title": "学究社、2026年3月期は減収増益 2027年3月期は増収増益と24円増配を予想 - インベストーク",
+            "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFB4NkRvUUNwYmZSTWJGRWpkU3l2MFpKZ2M5b2ZlbjNEQjVpekcydkozbmhfNENZaTM5NFhHMllHR2xha0hTMzlEcU9NVzRNcU92Q3BBNk5YeXQ5dzNMSndjRE9yRQ?oc=5"
           }
         ],
+        "positives": [],
         "riskFlag": true
       }
     }
