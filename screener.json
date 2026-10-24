@@ -1,48 +1,24 @@
 {
-  "updated": "2026-10-17T05:07:47.447572+00:00",
+  "updated": "2026-10-24T05:09:23.779643+00:00",
   "priceMax": 1000,
   "universeCount": 225,
   "matchCount": 5,
   "results": [
     {
       "market": "JP",
-      "code": "9434",
-      "name": "SB",
-      "price": 244.7,
-      "score": 89,
-      "volAnnualPct": 20.3,
-      "rangePct": 21.2,
-      "high52": 251.6,
-      "low52": 203.3,
-      "ma_long": 231.72,
-      "reasons": [
-        {
-          "text": "値動きの荒さ（年率換算 20%）",
-          "pts": 45.3,
-          "max": 55
-        },
-        {
-          "text": "52週の値幅（中心値の21%）",
-          "pts": 43.6,
-          "max": 45
-        }
-      ]
-    },
-    {
-      "market": "JP",
       "code": "3861",
       "name": "王子HD",
-      "price": 838.3,
-      "score": 89,
-      "volAnnualPct": 17.8,
+      "price": 825.7,
+      "score": 90,
+      "volAnnualPct": 17.1,
       "rangePct": 25.1,
       "high52": 987.9,
       "low52": 767.9,
-      "ma_long": 854.6,
+      "ma_long": 856.89,
       "reasons": [
         {
-          "text": "値動きの荒さ（年率換算 18%）",
-          "pts": 49.9,
+          "text": "値動きの荒さ（年率換算 17%）",
+          "pts": 51.1,
           "max": 55
         },
         {
@@ -56,17 +32,17 @@
       "market": "JP",
       "code": "9008",
       "name": "京王",
-      "price": 756.2,
+      "price": 765.8,
       "score": 89,
-      "volAnnualPct": 21.3,
+      "volAnnualPct": 20.8,
       "rangePct": 16.2,
       "high52": 843.8,
       "low52": 717.7,
-      "ma_long": 773.08,
+      "ma_long": 774.08,
       "reasons": [
         {
           "text": "値動きの荒さ（年率換算 21%）",
-          "pts": 43.5,
+          "pts": 44.4,
           "max": 55
         },
         {
@@ -78,19 +54,43 @@
     },
     {
       "market": "JP",
+      "code": "9434",
+      "name": "SB",
+      "price": 237.4,
+      "score": 86,
+      "volAnnualPct": 21.6,
+      "rangePct": 21.2,
+      "high52": 251.6,
+      "low52": 203.3,
+      "ma_long": 234.21,
+      "reasons": [
+        {
+          "text": "値動きの荒さ（年率換算 22%）",
+          "pts": 42.9,
+          "max": 55
+        },
+        {
+          "text": "52週の値幅（中心値の21%）",
+          "pts": 43.6,
+          "max": 45
+        }
+      ]
+    },
+    {
+      "market": "JP",
       "code": "9432",
       "name": "NTT",
-      "price": 174.5,
-      "score": 86,
-      "volAnnualPct": 20.8,
+      "price": 174.8,
+      "score": 85,
+      "volAnnualPct": 21.1,
       "rangePct": 23.0,
       "high52": 180.0,
       "low52": 142.8,
-      "ma_long": 162.57,
+      "ma_long": 164.66,
       "reasons": [
         {
           "text": "値動きの荒さ（年率換算 21%）",
-          "pts": 44.3,
+          "pts": 43.9,
           "max": 55
         },
         {
@@ -104,17 +104,17 @@
       "market": "JP",
       "code": "5401",
       "name": "日本製鉄",
-      "price": 643.5,
+      "price": 654.0,
       "score": 65,
-      "volAnnualPct": 28.9,
+      "volAnnualPct": 29.0,
       "rangePct": 28.1,
       "high52": 704.6,
       "low52": 531.0,
-      "ma_long": 641.98,
+      "ma_long": 649.99,
       "reasons": [
         {
           "text": "値動きの荒さ（年率換算 29%）",
-          "pts": 29.5,
+          "pts": 29.4,
           "max": 55
         },
         {
