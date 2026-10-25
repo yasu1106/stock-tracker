@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-23T12:24:43.240790+00:00",
+  "updated": "2026-10-25T23:27:06.030056+00:00",
   "fx": {
-    "USDJPY": 156.712
+    "USDJPY": 156.948
   },
   "prices": {
     "JP:7203": {
@@ -163,19 +163,19 @@
       }
     },
     "US:AAPL": {
-      "price": 348.22,
-      "prevClose": 343.989990234375,
-      "changePct": 1.23,
+      "price": 347.725,
+      "prevClose": 348.2200012207031,
+      "changePct": -0.14,
       "currency": "USD",
-      "ma_short": 338.37,
-      "ma_long": 325.95,
+      "ma_short": 338.83,
+      "ma_long": 326.37,
       "high52": 348.22,
       "low52": 246.63,
-      "asOf": "2026-10-22T20:00:01+00:00",
+      "asOf": "2026-10-23T20:00:01+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 96,
+        "score": 97,
         "rating": "candidate",
         "reasons": [
           {
@@ -190,17 +190,17 @@
           },
           {
             "text": "52週高値の100%の位置",
-            "pts": 20.0,
+            "pts": 19.9,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +27.4%",
-            "pts": 18.2,
+            "text": "半年の値上がり率 +28.3%",
+            "pts": 18.9,
             "max": 20
           },
           {
             "text": "値動きの荒さ（年率換算 24%）",
-            "pts": 17.8,
+            "pts": 17.9,
             "max": 20
           }
         ],
@@ -215,19 +215,19 @@
       }
     },
     "US:MSFT": {
-      "price": 521.08,
-      "prevClose": 532.9500122070312,
-      "changePct": -2.23,
+      "price": 524.51,
+      "prevClose": 521.0800170898438,
+      "changePct": 0.66,
       "currency": "USD",
-      "ma_short": 520.7,
-      "ma_long": 481.9,
+      "ma_short": 521.93,
+      "ma_long": 483.76,
       "high52": 543.45,
       "low52": 352.83,
-      "asOf": "2026-10-22T20:00:01+00:00",
+      "asOf": "2026-10-23T20:00:01+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 84,
+        "score": 91,
         "rating": "candidate",
         "reasons": [
           {
@@ -241,18 +241,18 @@
             "max": 15
           },
           {
-            "text": "52週高値の96%の位置",
-            "pts": 17.3,
+            "text": "52週高値の97%の位置",
+            "pts": 17.7,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +25.3%",
-            "pts": 16.9,
+            "text": "半年の値上がり率 +23.5%",
+            "pts": 15.7,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 39%）",
-            "pts": 10.4,
+            "text": "値動きの荒さ（年率換算 24%）",
+            "pts": 17.9,
             "max": 20
           }
         ],
@@ -267,19 +267,19 @@
       }
     },
     "US:KO": {
-      "price": 95.34,
-      "prevClose": 92.68000030517578,
-      "changePct": 2.87,
+      "price": 92.71,
+      "prevClose": 95.33999633789062,
+      "changePct": -2.76,
       "currency": "USD",
-      "ma_short": 89.07,
-      "ma_long": 87.65,
+      "ma_short": 89.24,
+      "ma_long": 87.78,
       "high52": 95.34,
       "low52": 67.54,
-      "asOf": "2026-10-22T20:00:02+00:00",
+      "asOf": "2026-10-23T20:00:02+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 94,
+        "score": 89,
         "rating": "candidate",
         "reasons": [
           {
@@ -289,21 +289,21 @@
           },
           {
             "text": "75日線の傾き（20日で+2.4%）",
-            "pts": 11.9,
+            "pts": 12.2,
             "max": 15
           },
           {
-            "text": "52週高値の100%の位置",
-            "pts": 20.0,
+            "text": "52週高値の97%の位置",
+            "pts": 18.2,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +25.0%",
-            "pts": 16.7,
+            "text": "半年の値上がり率 +21.0%",
+            "pts": 14.0,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 16%）",
+            "text": "値動きの荒さ（年率換算 17%）",
             "pts": 20.0,
             "max": 20
           }
@@ -314,7 +314,13 @@
         "checked": true,
         "count": 8,
         "warnings": [],
-        "positives": [],
+        "positives": [
+          {
+            "keyword": "提携",
+            "title": "KFC、米全店でコカ・コーラ提供へ－長年の提携先ペプシコから変更 - Bloomberg.com",
+            "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE4wZmZsVXczTjdtaFEzSENYM00wbkdKOHZWa3QwSUJLeWxKVlFfc2FmelhRb3IxX2JKdU5nbUVocDQ2a2VrbHlMZjduNzU0VjVReFh3OW9nY0xrTHZ3VVQxck56V1E3eTZlbHlxSHJVdVpMcTZTYnN3?oc=5"
+          }
+        ],
         "riskFlag": false
       }
     },
@@ -427,15 +433,15 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [
+        "warnings": [],
+        "positives": [
           {
-            "keyword": "赤字",
-            "title": "スーパー100店舗閉鎖の衝撃〉イオン系「カスミ」「マルエツ」はなぜ苦戦？ 80億円の赤字予想…地方スーパーや格安店との競争で浮かぶ“選ばれる店”の条件（集英社オンライン - Yahoo!ニュース",
-            "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBmNmZ5NmFfVnkzR3dyNW5FRHFpMk5kTElWenZxWDk0cnl6cGd4MnROOGdXckVuTGdqNldsMlpKSEJ3V2JQbkhXMUxsYmd0bjVBR1M4X2puczAzZHpWNnRNMnNqdElzY0pDLW9jbXpUcWpING5NNE85UURsbGEyUjg?oc=5"
+            "keyword": "最高益",
+            "title": "イオン株、営業最高益でも下げ止まらず 本業のスーパーで稼ぐ力低迷 - 日本経済新聞",
+            "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBNdi1faE9JMnBJeURzZGFINm1yR3ZBNDRJUzhZR3l3U29nazdZRjFTdVB5aTlKZmstVnp4ZGRzNjJHUzV4Sjh3NlhKdE5wQVNrM0dCRHhOaHBZNTVSSTVXUWFuNzVLSTYtVDRuYw?oc=5"
           }
         ],
-        "positives": [],
-        "riskFlag": true
+        "riskFlag": false
       }
     },
     "JP:9119": {
