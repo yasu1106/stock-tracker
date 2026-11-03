@@ -1,7 +1,7 @@
 {
-  "updated": "2026-11-03T02:59:48.343920+00:00",
+  "updated": "2026-11-03T14:50:38.691950+00:00",
   "fx": {
-    "USDJPY": 157.898
+    "USDJPY": 158.274
   },
   "prices": {
     "JP:7203": {
@@ -169,19 +169,19 @@
       }
     },
     "US:AAPL": {
-      "price": 338.32,
-      "prevClose": 344.6300048828125,
-      "changePct": -1.83,
+      "price": 333.365,
+      "prevClose": 338.32000732421875,
+      "changePct": -1.46,
       "currency": "USD",
-      "ma_short": 340.26,
-      "ma_long": 328.04,
+      "ma_short": 340.42,
+      "ma_long": 328.13,
       "high52": 348.91,
       "low52": 246.63,
-      "asOf": "2026-11-02T21:00:01+00:00",
+      "asOf": "2026-11-03T14:50:44+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 88,
+        "score": 83,
         "rating": "candidate",
         "reasons": [
           {
@@ -190,18 +190,18 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+3.1%）",
-            "pts": 15.0,
+            "text": "75日線の傾き（20日で+3.0%）",
+            "pts": 14.8,
             "max": 15
           },
           {
-            "text": "52週高値の97%の位置",
-            "pts": 18.0,
+            "text": "52週高値の96%の位置",
+            "pts": 17.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +22.2%",
-            "pts": 14.8,
+            "text": "半年の値上がり率 +17.3%",
+            "pts": 11.5,
             "max": 20
           },
           {
@@ -221,19 +221,19 @@
       }
     },
     "US:MSFT": {
-      "price": 507.12,
-      "prevClose": 521.9099731445312,
-      "changePct": -2.83,
+      "price": 510.99,
+      "prevClose": 507.1199951171875,
+      "changePct": 0.76,
       "currency": "USD",
-      "ma_short": 527.16,
-      "ma_long": 494.47,
+      "ma_short": 527.24,
+      "ma_long": 495.91,
       "high52": 543.45,
       "low52": 352.83,
-      "asOf": "2026-11-02T21:00:01+00:00",
+      "asOf": "2026-11-03T14:50:46+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 85,
+        "score": 86,
         "rating": "candidate",
         "reasons": [
           {
@@ -242,18 +242,18 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+8.7%）",
+            "text": "75日線の傾き（20日で+8.6%）",
             "pts": 15.0,
             "max": 15
           },
           {
-            "text": "52週高値の93%の位置",
-            "pts": 15.5,
+            "text": "52週高値の94%の位置",
+            "pts": 16.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +22.6%",
-            "pts": 15.1,
+            "text": "半年の値上がり率 +24.2%",
+            "pts": 16.1,
             "max": 20
           },
           {
@@ -267,31 +267,25 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [
-          {
-            "keyword": "希望退職",
-            "title": "Microsoftが再び希望退職を募集、6万人対象 AI投資に注力 - 日本経済新聞",
-            "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9IMjZGbkVXaFFFRmROMUQxWEpGeXJWOHlldElGNUkzdUZtYVFXY2ZLcWdmYURLVlpRbExGaFNkSXlvLWJtNWxNOHR5M1dkUmxaTHd3aGFlWW5lR3lYQmNzQ2N6UGgtWUVfX0xldg?oc=5"
-          }
-        ],
+        "warnings": [],
         "positives": [],
-        "riskFlag": true
+        "riskFlag": false
       }
     },
     "US:KO": {
-      "price": 95.83,
-      "prevClose": 94.08000183105469,
-      "changePct": 1.86,
+      "price": 94.465,
+      "prevClose": 95.83000183105469,
+      "changePct": -1.42,
       "currency": "USD",
-      "ma_short": 90.5,
-      "ma_long": 88.56,
+      "ma_short": 90.81,
+      "ma_long": 88.73,
       "high52": 95.83,
       "low52": 67.54,
-      "asOf": "2026-11-02T21:00:02+00:00",
+      "asOf": "2026-11-03T14:50:47+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 94,
+        "score": 92,
         "rating": "candidate",
         "reasons": [
           {
@@ -300,22 +294,22 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+2.9%）",
-            "pts": 14.4,
+            "text": "75日線の傾き（20日で+3.0%）",
+            "pts": 14.8,
             "max": 15
           },
           {
-            "text": "52週高値の100%の位置",
-            "pts": 20.0,
+            "text": "52週高値の99%の位置",
+            "pts": 19.1,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +22.6%",
-            "pts": 15.0,
+            "text": "半年の値上がり率 +20.4%",
+            "pts": 13.6,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 17%）",
+            "text": "値動きの荒さ（年率換算 18%）",
             "pts": 20.0,
             "max": 20
           }
@@ -325,15 +319,15 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [],
-        "positives": [
+        "warnings": [
           {
-            "keyword": "黒字転換",
-            "title": "コカコーラBJH－急騰 3Q累計営業黒字転換 価格改定やコスト削減など寄与〔DZH 個別株情報〕(時事通信) - Yahoo!ファイナンス",
-            "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOZXlyWl9QVFpYa1g0a1ZCMG55NnJ4WnE5QjE5S3J1RGhLMkxmWU5wZlQ5aE9CVVdmbU5YUHlhdHdGREtYQmFNeUZEWm00UW5ZU01EOU1yTXFGN2MtVDlpUlVWZThMYWxobW9SVWpXbVpVVXNoYmcwTExja1dwdGNJQXRjOExKNGM?oc=5"
+            "keyword": "減収",
+            "title": "コカ・コーラBJH、減収でも事業利益32%増 価格改定と自販機改革で収益性改善（食品産業新聞社ニュースWEB） - Yahoo!ニュース",
+            "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOFhPYi1jVDhkdF9SdUpwVWFhTVZtMEtSWDZUMnlDcDBjR0R3WEJ2R0JYX2RxazlrTDJJREJ0NVdPdGNQeUtuOEZRU05UUzlqOExPVmMwcGdrd0s0LU80TlJhLUxXUUpLZkJITHk0NWo3bDBCRHZZNmJTcFVLazhIZG5zT2h5Z3Rt?oc=5"
           }
         ],
-        "riskFlag": false
+        "positives": [],
+        "riskFlag": true
       }
     },
     "JP:3548": {
@@ -391,14 +385,15 @@
             "keyword": "下方修正",
             "title": "バロックジャパンリミテッド、27年2月期予想を大幅下方修正 上期は最終赤字に転落 - Fashionsnap.com",
             "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdzQwUklEd18wX29RTG1mQ2pLVVhMTUpoOXJEbDlCOGcyRmt0cFBKM2FfNWV1ZUFsMHdjelJYSEkzMzNNUHFCaHZ0Vlp6Mlp5emNmSHhRQk4tNXV0eHY0T0xuck05VjRlTXctdXBFUVBVOGxwbTgxZVdjZ281aWdfWTNn?oc=5"
-          },
-          {
-            "keyword": "下方修正",
-            "title": "バロックジャパン、27年2月期中間は9億円の営業赤字 「アズール」の苦戦響き、通期予想も下方修正 - WWDJAPAN",
-            "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE54Wmd3ZnZObHB3b094QlFBRmxnX0psOHhGbUtBQ1JiTVpqNVpvbWRZczNEVWJlanpxM2Z6VzBoSi13Z0s4UDVUek9LbXF2VkE5TGJF?oc=5"
           }
         ],
-        "positives": [],
+        "positives": [
+          {
+            "keyword": "黒字転換",
+            "title": "バロックジャパンリミテッド、中国合弁事業解消で当期純利益は黒字転換 新中計ではアパレル回復と異業種への挑戦を推進 - ログミーFinance",
+            "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5kYWFZTENoV2g0ZG9zZVg1REE2OUtua3BHbWl0MUY4ZDdzNlBRaVBSWlM1SWVkR05wNVV5MUpPZWstUkdqM3VIcDlKa3l3NG5CdGc?oc=5"
+          }
+        ],
         "riskFlag": true
       }
     },
