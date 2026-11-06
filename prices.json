@@ -1,48 +1,48 @@
 {
-  "updated": "2026-11-05T15:10:24.631030+00:00",
+  "updated": "2026-11-06T01:43:05.299471+00:00",
   "fx": {
-    "USDJPY": 158.109
+    "USDJPY": 157.85
   },
   "prices": {
     "JP:7203": {
-      "price": 3533.0,
-      "prevClose": 3051.0,
-      "changePct": 15.8,
+      "price": 3379.0,
+      "prevClose": 3533.0,
+      "changePct": -4.36,
       "currency": "JPY",
-      "ma_short": 3008.84,
-      "ma_long": 3014.81,
+      "ma_short": 3053.26,
+      "ma_long": 3030.78,
       "high52": 3944.0,
       "low52": 2686.0,
-      "asOf": "2026-11-05T06:30:00+00:00",
+      "asOf": "2026-11-06T01:28:05+00:00",
       "name": "トヨタ自動車",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 68,
+        "score": 66,
         "rating": "watch",
         "reasons": [
           {
-            "text": "株価と25日線・75日線の並び（株価>25日線、25日線<75日線）",
-            "pts": 15.0,
+            "text": "株価と25日線・75日線の並び（株価>25日線、25日線>75日線）",
+            "pts": 25.0,
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+2.2%）",
-            "pts": 11.0,
+            "text": "75日線の傾き（20日で+2.7%）",
+            "pts": 13.3,
             "max": 15
           },
           {
-            "text": "52週高値の90%の位置",
-            "pts": 13.1,
+            "text": "52週高値の86%の位置",
+            "pts": 10.4,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +15.2%",
-            "pts": 10.1,
+            "text": "半年の値上がり率 +11.8%",
+            "pts": 7.9,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 23%）",
-            "pts": 18.4,
+            "text": "値動きの荒さ（年率換算 42%）",
+            "pts": 9.1,
             "max": 20
           }
         ],
@@ -63,19 +63,19 @@
       }
     },
     "JP:9432": {
-      "price": 164.9,
-      "prevClose": 174.5,
-      "changePct": -5.5,
+      "price": 161.2,
+      "prevClose": 164.89999389648438,
+      "changePct": -2.24,
       "currency": "JPY",
-      "ma_short": 172.83,
-      "ma_long": 166.92,
+      "ma_short": 172.16,
+      "ma_long": 167.26,
       "high52": 180.0,
       "low52": 142.8,
-      "asOf": "2026-11-05T06:30:00+00:00",
+      "asOf": "2026-11-06T01:28:05+00:00",
       "name": "NTT",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 64,
+        "score": 61,
         "rating": "watch",
         "reasons": [
           {
@@ -84,23 +84,23 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+4.6%）",
+            "text": "75日線の傾き（20日で+4.3%）",
             "pts": 15.0,
             "max": 15
           },
           {
-            "text": "52週高値の92%の位置",
-            "pts": 14.4,
+            "text": "52週高値の90%の位置",
+            "pts": 13.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +9.1%",
-            "pts": 6.0,
+            "text": "半年の値上がり率 +5.7%",
+            "pts": 3.8,
             "max": 20
           },
           {
             "text": "値動きの荒さ（年率換算 22%）",
-            "pts": 18.9,
+            "pts": 18.8,
             "max": 20
           }
         ],
@@ -117,19 +117,19 @@
       }
     },
     "JP:8058": {
-      "price": 5274.0,
-      "prevClose": 4772.0,
-      "changePct": 10.52,
+      "price": 4903.0,
+      "prevClose": 5274.0,
+      "changePct": -7.03,
       "currency": "JPY",
-      "ma_short": 4760.96,
-      "ma_long": 4796.83,
+      "ma_short": 4791.8,
+      "ma_long": 4811.44,
       "high52": 5882.0,
       "low52": 3512.0,
-      "asOf": "2026-11-05T06:30:00+00:00",
+      "asOf": "2026-11-06T01:28:10+00:00",
       "name": "三菱商事",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 57,
+        "score": 46,
         "rating": "watch",
         "reasons": [
           {
@@ -138,23 +138,23 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+1.7%）",
-            "pts": 8.4,
+            "text": "75日線の傾き（20日で+1.9%）",
+            "pts": 9.7,
             "max": 15
           },
           {
-            "text": "52週高値の90%の位置",
-            "pts": 13.1,
+            "text": "52週高値の83%の位置",
+            "pts": 8.9,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +9.6%",
-            "pts": 6.4,
+            "text": "半年の値上がり率 -1.7%",
+            "pts": 0.0,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 31%）",
-            "pts": 14.3,
+            "text": "値動きの荒さ（年率換算 34%）",
+            "pts": 12.8,
             "max": 20
           }
         ],
@@ -172,47 +172,37 @@
           },
           {
             "keyword": "自社株買い",
-            "title": "三菱商事、1兆円の自社株買いで株価7.9%高―商社4社の配当と100株投資額を比較 - 財経新聞",
-            "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE83X2h5SV82UXZjR1M1Q2JsdlhIZHpheS1uNkQ5V1BHOFMwNjRoOUE0ZVgxWkQ1M0NhYWZTX1ViQ2VLR1FzeWFSQjlURVlUOEZGeUhSYk95WElwRGN5WFBJMDJIUdIBaEFVX3lxTFBWSFZBMmw3M1U2X2EwYVo2N1Y2bzg3MWVNZ1dXM2FpNWs2eTByeVBWVEt0TXZEQ3NyYmNsUy1Kb1Z5RGhGRFk0N0Zkcy12VlBKMGw5YjFQeXZRM29haHJ0TTk4V0x3U1c3?oc=5"
+            "title": "三菱商事など、11月4日の自社株買い発表(フィスコ) - Yahoo!ファイナンス",
+            "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNdmJtTUdvUWNhWVRDczVoMUdkcUJUV3RxeUJYWlluLXZ6RjZ6SEItQkZEcEw2dU9zRmgwOHdaNW5lQ3VnN2pDOVBoR2s4RXRiTWVnQjItd3hMTF9Cb01oQlJRb2QzWjB5VGtqQVVqSHczU0hpOTJnVWVEMExLZm5xakU1dVlmNDg?oc=5"
           },
           {
             "keyword": "上方修正",
-            "title": "三菱商、今期最終を9％上方修正・4期ぶり最高益更新へ - 株探",
-            "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9wN0xZLWVHNFNPU21uV0tld0FINTlXa2oxdnhQdGVGdE05T3Z6VWZsRVFnQjI4STBEeV9UdmF2c3FBOE14X3pfMkZKcnF2a3A0YXc?oc=5"
-          },
-          {
-            "keyword": "上方修正",
-            "title": "総合商社4社が上方修正、三菱商事など最高益へ 中東情勢で資源高騰 - 朝日新聞",
-            "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBEekJMaFE2d1I2STNsaVEwMUJxN3Atb2tZSDRSdHpIWTFzTG93Z2lpNGY0N196V3NuWE1ZS3ZsQktoOVdiTjRPMmY5YjZzeTAyd01rNFdLbmFMMWlnT09WdjBCNVJQZlE?oc=5"
+            "title": "三菱商事、4年ぶり最高益に 資源やエネルギー価格上昇で上方修正 - Reuters",
+            "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9wZWd4RWVyNTltMHlTcERYSUdYd3FTQmkxbXhCZGVsRi00aHJ5Y2x2TWpjMDVJb1RYU1ZxMmE1Nlp6TmFkODdUYzdBdjlmWHJnSEZZbFdOTk4tTi01OXFKbG9CTXN6WHVGTEQ3SmptR2tMbGFoeFZBY0xJaw?oc=5"
           },
           {
             "keyword": "自社株買い",
-            "title": "三菱商事、発行済み株式の約6％・1兆円を上限に自社株買い - ｄメニューニュース",
-            "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNVWNpOHFwQ2Y5YXFia0lpN0xzWERwZXZtY010Zk51UUdnVFRGS0hpREljOWotSE9yZGxNWTZiYnFNYmNrR05wZ1NteFlLT2YwM1ZtUEotNkF6MzhHNEMwT1FFMXU0WF9WZEk1V255bHJWTWNodUhWVUpYUWdnUS1GemdB0gGHAUFVX3lxTE1sRVdKcl93ZVVFZjlvMW53R3VOa2o1S0FVSWpoU2VUWk84VDNRVHNFQ25ibXlSYnd3ZEVIMWxFZmU3VWhpSnMzWHUtQUJ4VFFtS2NnOU5UT183QWxKQk9jMFd3aU5idDlhcjZIaExTQ0RodFhuYlRQcThRbzlhdmxQSlJsTVdYcw?oc=5"
-          },
-          {
-            "keyword": "上方修正",
-            "title": "【総合商社４社決算】三菱商事が１兆円自社株買い、三井物産・丸紅は上方修正――利益の質と還元力で明暗 - https://kabu-ir.com/",
-            "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBKeXRBQ3dwdjd0eE0wVnZ5ZnhldHhtT01zUjY5MjB2LVNLdFJVdmZsX3dad2JLbWstT3VWSnlXUGNGZVV5ZVdSZXlpa3J3d1Q4bl82dA?oc=5"
+            "title": "三菱商事、1兆円上限の自社株買いー大規模還元で株価上昇に転じる - Bloomberg.com",
+            "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE55RTZxQnItN3pHaVdLQzZxZFRPbXVnajdpZzk2Nld4SEk3UWIzQWN2M1FRdzFDREIwcGZ6QzlfeGJDRzZ3UkJTUnZDZkdkaDVSaVc3d2hERkJkTE9XRk4zUGJadnpkM1RFN1VsSFkzN1k4Ym1nVk5j?oc=5"
           }
         ],
         "riskFlag": false
       }
     },
     "US:AAPL": {
-      "price": 348.41,
-      "prevClose": 349.510009765625,
-      "changePct": -0.31,
+      "price": 344.17,
+      "prevClose": 331.8999938964844,
+      "changePct": 3.7,
       "currency": "USD",
-      "ma_short": 341.74,
-      "ma_long": 328.7,
+      "ma_short": 341.02,
+      "ma_long": 328.4,
       "high52": 349.51,
       "low52": 246.63,
-      "asOf": "2026-11-05T15:10:33+00:00",
+      "asOf": "2026-11-05T21:00:01+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 92,
+        "score": 91,
         "rating": "candidate",
         "reasons": [
           {
@@ -221,18 +211,18 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+2.8%）",
-            "pts": 13.9,
+            "text": "75日線の傾き（20日で+2.9%）",
+            "pts": 14.4,
             "max": 15
           },
           {
-            "text": "52週高値の100%の位置",
-            "pts": 19.8,
+            "text": "52週高値の98%の位置",
+            "pts": 19.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +21.2%",
-            "pts": 14.1,
+            "text": "半年の値上がり率 +19.7%",
+            "pts": 13.1,
             "max": 20
           },
           {
@@ -252,19 +242,19 @@
       }
     },
     "US:MSFT": {
-      "price": 544.92,
-      "prevClose": 555.7999877929688,
-      "changePct": -1.96,
+      "price": 535.93,
+      "prevClose": 520.989990234375,
+      "changePct": 2.87,
       "currency": "USD",
-      "ma_short": 530.64,
-      "ma_long": 500.22,
+      "ma_short": 529.35,
+      "ma_long": 498.16,
       "high52": 555.8,
       "low52": 352.83,
-      "asOf": "2026-11-05T15:10:36+00:00",
+      "asOf": "2026-11-05T21:00:01+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 95,
+        "score": 94,
         "rating": "candidate",
         "reasons": [
           {
@@ -273,23 +263,23 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+8.5%）",
+            "text": "75日線の傾き（20日で+8.6%）",
             "pts": 15.0,
             "max": 15
           },
           {
-            "text": "52週高値の98%の位置",
-            "pts": 18.7,
+            "text": "52週高値の96%の位置",
+            "pts": 17.6,
             "max": 20
           },
           {
             "text": "半年の値上がり率 +29.5%",
-            "pts": 19.7,
+            "pts": 19.6,
             "max": 20
           },
           {
             "text": "値動きの荒さ（年率換算 26%）",
-            "pts": 17.0,
+            "pts": 16.9,
             "max": 20
           }
         ],
@@ -298,25 +288,31 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [],
+        "warnings": [
+          {
+            "keyword": "リストラ",
+            "title": "AIの影響か？ 利益急増でも6万人に退職打診 マイクロソフトの「黒字リストラ」は日本にも広がるか？ #エキスパートトピ - Yahoo!ニュース",
+            "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQko3ejM5cjRwWndhREpqLWZkS1RCN2JtYWN6NGlMVmxxb1hCSkkwcThnZDJreThhRElUSG5yMGliMFZRNzlXVElDaTBWLU5nWHhRczAzWG1zSmc1VzNlUTAwYlZpcDhkLUhGbjYxSlRucTRPSHk0cDEzbjVma1k4OHhxS1puanY3?oc=5"
+          }
+        ],
         "positives": [],
-        "riskFlag": false
+        "riskFlag": true
       }
     },
     "US:KO": {
-      "price": 97.31,
-      "prevClose": 95.80000305175781,
-      "changePct": 1.58,
+      "price": 95.73,
+      "prevClose": 94.80000305175781,
+      "changePct": 0.98,
       "currency": "USD",
-      "ma_short": 91.66,
-      "ma_long": 89.12,
-      "high52": 97.31,
+      "ma_short": 91.21,
+      "ma_long": 88.92,
+      "high52": 95.83,
       "low52": 67.54,
-      "asOf": "2026-11-05T15:10:40+00:00",
+      "asOf": "2026-11-05T21:00:02+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 96,
+        "score": 94,
         "rating": "candidate",
         "reasons": [
           {
@@ -325,18 +321,18 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+3.2%）",
+            "text": "75日線の傾き（20日で+3.1%）",
             "pts": 15.0,
             "max": 15
           },
           {
             "text": "52週高値の100%の位置",
-            "pts": 20.0,
+            "pts": 19.9,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +24.1%",
-            "pts": 16.0,
+            "text": "半年の値上がり率 +20.8%",
+            "pts": 13.9,
             "max": 20
           },
           {
@@ -356,25 +352,30 @@
             "keyword": "増配",
             "title": "P&Gもコカ･コーラも60年超え､米国株｢連続増配年数｣TOP50 - 四季報オンライン",
             "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5rcmZ0SmQ0b21LaWZyaW1RWVdob29uR015c3VhTTV0am5nQzRQWTdZZmlZeG1jYVlxUTZIU0ZONUFKSVNGeXBYOWNnc0E5dzZCeWNHaHRpRQ?oc=5"
+          },
+          {
+            "keyword": "増配",
+            "title": "米コカ・コーラ、64年連続増配を継続 株価37%上昇で利回り2.2%に低下 - BigGo ファイナンス",
+            "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5XZHdVXzBQV0JsN1A3MFlqM1BwbEYwekVRNHRnOUNvZlBLLWlNXy15bk9hd3Q0aXlWZjl2d2xsQllJUVZsLXFGNTZicDItNFY0dUVmMzR5OFNxS0ZOZjYwanRhVlJ2alMtaS1qYTZibTRwdFBM?oc=5"
           }
         ],
         "riskFlag": false
       }
     },
     "JP:3548": {
-      "price": 486.0,
-      "prevClose": 523.0,
-      "changePct": -7.07,
+      "price": 469.0,
+      "prevClose": 486.0,
+      "changePct": -3.5,
       "currency": "JPY",
-      "ma_short": 611.12,
-      "ma_long": 680.99,
+      "ma_short": 597.08,
+      "ma_long": 673.95,
       "high52": 814.0,
-      "low52": 511.0,
-      "asOf": "2026-11-05T06:30:00+00:00",
+      "low52": 469.0,
+      "asOf": "2026-11-06T01:28:02+00:00",
       "name": "バロックジャパンリミテッド",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 18,
+        "score": 17,
         "rating": "caution",
         "reasons": [
           {
@@ -383,29 +384,29 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で-5.0%）",
+            "text": "75日線の傾き（20日で-5.6%）",
             "pts": 0.0,
             "max": 15
           },
           {
-            "text": "52週高値の60%の位置",
+            "text": "52週高値の58%の位置",
             "pts": 0.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 -33.4%",
+            "text": "半年の値上がり率 -35.5%",
             "pts": 0.0,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 23%）",
-            "pts": 18.3,
+            "text": "値動きの荒さ（年率換算 26%）",
+            "pts": 17.2,
             "max": 20
           }
         ],
         "warnings": [
           "株価が75日線を下回っています",
-          "直近20営業日で -24.5% 下落しています"
+          "直近20営業日で -25.1% 下落しています"
         ]
       },
       "news": {
@@ -434,102 +435,98 @@
       }
     },
     "JP:8267": {
-      "price": 1309.5,
-      "prevClose": 1204.5,
-      "changePct": 8.72,
+      "price": 1283.0,
+      "prevClose": 1309.5,
+      "changePct": -2.02,
       "currency": "JPY",
-      "ma_short": 1190.32,
-      "ma_long": 1307.77,
+      "ma_short": 1191.92,
+      "ma_long": 1305.29,
       "high52": 2877.5,
       "low52": 1119.5,
-      "asOf": "2026-11-05T06:30:00+00:00",
+      "asOf": "2026-11-06T01:28:22+00:00",
       "name": "イオン",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 30,
+        "score": 18,
         "rating": "caution",
         "reasons": [
           {
             "text": "株価と25日線・75日線の並び（株価>25日線、25日線<75日線）",
-            "pts": 15.0,
+            "pts": 5.0,
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で-3.7%）",
+            "text": "75日線の傾き（20日で-3.6%）",
             "pts": 0.0,
             "max": 15
           },
           {
-            "text": "52週高値の46%の位置",
+            "text": "52週高値の45%の位置",
             "pts": 0.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 -15.4%",
+            "text": "半年の値上がり率 -15.0%",
             "pts": 0.0,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 29%）",
-            "pts": 15.3,
+            "text": "値動きの荒さ（年率換算 33%）",
+            "pts": 13.3,
             "max": 20
           }
         ],
-        "warnings": []
+        "warnings": [
+          "株価が75日線を下回っています"
+        ]
       },
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [
-          {
-            "keyword": "火災",
-            "title": "『ちびまる子ちゃん』がリチウムイオン電池による火災防止を呼びかけ - BCN Retail",
-            "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBLRkVFMzAyUzVQWTVCNGJPTmcwcklxZnh6ZkdQbV9QUXlXZzAyNzIwS0xNZG9LVnQwSmZXZGV6dllTN0s2anJGYUw2WHFPMUZPN0ZXYTNfLUZGOWhXYVZoem1YbEY2a1JHSVI4Ng?oc=5"
-          }
-        ],
+        "warnings": [],
         "positives": [],
-        "riskFlag": true
+        "riskFlag": false
       }
     },
     "JP:9119": {
-      "price": 1551.0,
-      "prevClose": 1636.0,
-      "changePct": -5.2,
+      "price": 1528.0,
+      "prevClose": 1551.0,
+      "changePct": -1.48,
       "currency": "JPY",
-      "ma_short": 1650.04,
-      "ma_long": 1641.81,
+      "ma_short": 1637.56,
+      "ma_long": 1642.75,
       "high52": 1909.0,
-      "low52": 1261.0,
-      "asOf": "2026-11-05T06:30:00+00:00",
+      "low52": 1280.0,
+      "asOf": "2026-11-06T01:28:14+00:00",
       "name": "飯野海運",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 50,
-        "rating": "watch",
+        "score": 38,
+        "rating": "caution",
         "reasons": [
           {
-            "text": "株価と25日線・75日線の並び（株価<25日線、25日線>75日線）",
-            "pts": 10.0,
+            "text": "株価と25日線・75日線の並び（株価<25日線、25日線<75日線）",
+            "pts": 0.0,
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+3.6%）",
+            "text": "75日線の傾き（20日で+3.3%）",
             "pts": 15.0,
             "max": 15
           },
           {
-            "text": "52週高値の81%の位置",
-            "pts": 7.5,
+            "text": "52週高値の80%の位置",
+            "pts": 6.7,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 -4.3%",
+            "text": "半年の値上がり率 -7.3%",
             "pts": 0.0,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 26%）",
-            "pts": 17.1,
+            "text": "値動きの荒さ（年率換算 27%）",
+            "pts": 16.5,
             "max": 20
           }
         ],
@@ -545,6 +542,11 @@
             "keyword": "減益",
             "title": "【決算速報】飯野海---27年3月期2Qは減益、経常利益は10％減(フィスコ) - Yahoo!ファイナンス",
             "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQWTJESENlbW80cG1na1RkelhjVThuLTZWN3lJZFlLaTRvaDNfOHVEc1hJOFIwWkJ5STZTU1F4RGluUnVEb3JWaHVlSVhfRjhaLWZFTGlybTI4NW43NEMyZmlBcnVQRG5LaG1McVpiUThBS2ZvWFNCZnI3ekN3NDhpd0JYSDBJNjQ?oc=5"
+          },
+          {
+            "keyword": "減益",
+            "title": "飯野海運、海運市況軟化で減益も予想上回る結果に 期末配当は4円増額、新中計では資本効率を重視した成長投資を加速 - ログミーFinance",
+            "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5yQVFtM3N0Yi1rUFRFVzV2QkJadVc2MWVmSGc1S2ktRDNvcC1TR3c2c25KaEFjWkZiNjdHd1NueWhCWXBaRW1HOFpNM2QwMmR4Tmc?oc=5"
           }
         ],
         "positives": [
@@ -568,19 +570,19 @@
       }
     },
     "JP:9769": {
-      "price": 2455.0,
-      "prevClose": 2391.0,
-      "changePct": 2.68,
+      "price": 2400.0,
+      "prevClose": 2455.0,
+      "changePct": -2.24,
       "currency": "JPY",
-      "ma_short": 2482.76,
-      "ma_long": 2574.96,
+      "ma_short": 2474.08,
+      "ma_long": 2571.64,
       "high52": 2776.0,
-      "low52": 2240.0,
-      "asOf": "2026-11-05T06:30:00+00:00",
+      "low52": 2247.0,
+      "asOf": "2026-11-06T01:28:16+00:00",
       "name": "学究社",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 37,
+        "score": 34,
         "rating": "caution",
         "reasons": [
           {
@@ -589,22 +591,22 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で-0.5%）",
+            "text": "75日線の傾き（20日で-0.7%）",
             "pts": 0.0,
             "max": 15
           },
           {
-            "text": "52週高値の88%の位置",
-            "pts": 12.3,
+            "text": "52週高値の86%の位置",
+            "pts": 11.0,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +6.6%",
-            "pts": 4.4,
+            "text": "半年の値上がり率 +5.1%",
+            "pts": 3.4,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 17%）",
+            "text": "値動きの荒さ（年率換算 19%）",
             "pts": 20.0,
             "max": 20
           }
