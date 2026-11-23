@@ -1,7 +1,7 @@
 {
-  "updated": "2026-11-23T01:53:59.792271+00:00",
+  "updated": "2026-11-23T18:58:05.581065+00:00",
   "fx": {
-    "USDJPY": 158.896
+    "USDJPY": 159.1
   },
   "prices": {
     "JP:7203": {
@@ -171,39 +171,39 @@
       }
     },
     "US:AAPL": {
-      "price": 342.56,
-      "prevClose": 349.2099914550781,
-      "changePct": -1.9,
+      "price": 348.92,
+      "prevClose": 342.55999755859375,
+      "changePct": 1.86,
       "currency": "USD",
-      "ma_short": 346.88,
-      "ma_long": 332.76,
+      "ma_short": 347.12,
+      "ma_long": 333.23,
       "high52": 356.27,
       "low52": 246.63,
-      "asOf": "2026-11-20T21:00:02+00:00",
+      "asOf": "2026-11-23T18:58:10+00:00",
       "name": "Apple",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 73,
+        "score": 81,
         "rating": "candidate",
         "reasons": [
           {
-            "text": "株価と25日線・75日線の並び（株価<25日線、25日線>75日線）",
-            "pts": 20.0,
+            "text": "株価と25日線・75日線の並び（株価>25日線、25日線>75日線）",
+            "pts": 25.0,
             "max": 25
           },
           {
             "text": "75日線の傾き（20日で+2.0%）",
-            "pts": 9.8,
+            "pts": 9.9,
             "max": 15
           },
           {
-            "text": "52週高値の96%の位置",
-            "pts": 17.4,
+            "text": "52週高値の98%の位置",
+            "pts": 18.6,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +10.9%",
-            "pts": 7.3,
+            "text": "半年の値上がり率 +13.2%",
+            "pts": 8.8,
             "max": 20
           },
           {
@@ -223,19 +223,19 @@
       }
     },
     "US:MSFT": {
-      "price": 484.52,
-      "prevClose": 498.29998779296875,
-      "changePct": -2.77,
+      "price": 495.95,
+      "prevClose": 484.5199890136719,
+      "changePct": 2.36,
       "currency": "USD",
-      "ma_short": 524.12,
-      "ma_long": 511.73,
+      "ma_short": 522.62,
+      "ma_long": 511.68,
       "high52": 555.8,
       "low52": 352.83,
-      "asOf": "2026-11-20T21:00:00+00:00",
+      "asOf": "2026-11-23T18:58:15+00:00",
       "name": "Microsoft",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 63,
+        "score": 66,
         "rating": "watch",
         "reasons": [
           {
@@ -244,23 +244,23 @@
             "max": 25
           },
           {
-            "text": "75日線の傾き（20日で+5.8%）",
+            "text": "75日線の傾き（20日で+5.3%）",
             "pts": 15.0,
             "max": 15
           },
           {
-            "text": "52週高値の87%の位置",
-            "pts": 11.5,
+            "text": "52週高値の89%の位置",
+            "pts": 12.8,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +15.8%",
-            "pts": 10.5,
+            "text": "半年の値上がり率 +19.2%",
+            "pts": 12.8,
             "max": 20
           },
           {
-            "text": "値動きの荒さ（年率換算 28%）",
-            "pts": 15.8,
+            "text": "値動きの荒さ（年率換算 29%）",
+            "pts": 15.7,
             "max": 20
           }
         ],
@@ -271,31 +271,25 @@
       "news": {
         "checked": true,
         "count": 8,
-        "warnings": [
-          {
-            "keyword": "賠償",
-            "title": "Microsoft 365障害で業務が丸1日停止した企業 “失った利益”を賠償請求できるか 規約は“原則免責”だが、例外の条件を弁護士が解説 - Yahoo!ニュース",
-            "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4xWG1ROG5hOFFBdWp5SnNkWXktTU4xREJVdkRUbHh2Ynp3LTU2bDkxSUI3UFVPVXhibkVOR0J4dVJGWlZKOUk1bjJVOVdBVUdocmQybnpyWHpCek11WE53djJUVHNnT2tObjhyQUNWZ1lNQU9wSGktdURDRzNIaDQ?oc=5"
-          }
-        ],
+        "warnings": [],
         "positives": [],
-        "riskFlag": true
+        "riskFlag": false
       }
     },
     "US:KO": {
-      "price": 96.99,
-      "prevClose": 96.08999633789062,
-      "changePct": 0.94,
+      "price": 95.945,
+      "prevClose": 96.98999786376953,
+      "changePct": -1.08,
       "currency": "USD",
-      "ma_short": 95.38,
-      "ma_long": 90.75,
+      "ma_short": 95.49,
+      "ma_long": 90.87,
       "high52": 99.48,
       "low52": 67.54,
-      "asOf": "2026-11-20T21:00:02+00:00",
+      "asOf": "2026-11-23T18:58:16+00:00",
       "name": "コカ・コーラ",
       "yuutaiWarning": false,
       "analysis": {
-        "score": 91,
+        "score": 90,
         "rating": "candidate",
         "reasons": [
           {
@@ -309,13 +303,13 @@
             "max": 15
           },
           {
-            "text": "52週高値の97%の位置",
-            "pts": 18.3,
+            "text": "52週高値の96%の位置",
+            "pts": 17.6,
             "max": 20
           },
           {
-            "text": "半年の値上がり率 +19.0%",
-            "pts": 12.7,
+            "text": "半年の値上がり率 +19.2%",
+            "pts": 12.8,
             "max": 20
           },
           {
@@ -332,9 +326,9 @@
         "warnings": [],
         "positives": [
           {
-            "keyword": "増配",
-            "title": "米コカ・コーラ、64年連続増配の実力 年間1万ドルの配当を得るにはいくら必要か - BigGo ファイナンス",
-            "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1nNjZmREVpR3ZGaHp5NmliX3ExUFJTYjlPejQ5clNtaTZlOURRT0tXY3JyMTR0WHFMamhpa3B2MGx3OXNveDVubEtSMVNtRGl1SVlsd3BzRG9CcS1IRlhCTWhHSVYzUnAwOGFsYVREV3ZMcloz?oc=5"
+            "keyword": "提携",
+            "title": "EUは、コカ・コーラの提携企業が競争法に違反した疑いがあるとして調査を進めている。 - Vietnam.vn",
+            "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNbENBMzRFeXFZMzk3QnJ5Tm93ZkZkN05kNjcwWGJNczU1NVRvSGk4eTYtV2lkejNjc0hMb3MyY0lCQzFhV3hnclBMc0paem9MbHUzeGFkUHVWUGxORnZ5ZDZWV1NQbURtQWRmcUoxeGdfWm9lTWdBa3FLV0JDZzNiazQ5LUZuYzRHeEJieU5sUHozTG1sN1E?oc=5"
           }
         ],
         "riskFlag": false
